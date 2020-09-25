@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caculator</title>
+</head>
+<body>
+    <tr><center>CACULATOR</center></tr>
+    <tr>
+        <td><input id="a" type="number"></input></td>
+        <td><input id="b" type="number"></input></td>
+    </tr><br>
+    <tr>
+        <td><button onclick="cong()">Addition(+)</button></td>
+        <td><button onclick="sub()">Subtraction(-)</button></td>
+        <td><button onclick="mutil()">Multiplication(x)</button></td>
+        <td><button onclick="divi()">Division(/)</button></td>
+    </tr><br>
+    <tr>
+        <td><p id="c">Result Division:</p></td>
+    </tr>
+
+<script>
+    function cong() {
+        let a=document.getElementById('a').value;
+        let b=document.getElementById('b').value;
+        let c;
+            c=parseInt(a)+parseInt(b);
+        document.getElementById('c').innerHTML=document.getElementById('c').textContent+c;
+        }
+    function sub() {
+        let a=document.getElementById('a').value;
+        let b=document.getElementById('b').value;
+        let c;
+        c=parseInt(a)-parseInt(b);
+        document.getElementById('c').innerHTML=document.getElementById('c').textContent+c;
+    }
+    function mutil() {
+        let a=document.getElementById('a').value;
+        let b=document.getElementById('b').value;
+        let c;
+        c=parseInt(a)*parseInt(b);
+        document.getElementById('c').innerHTML=document.getElementById('c').textContent+c;
+    }
+    function divi() {
+        let a=document.getElementById('a').value;
+        let b=document.getElementById('b').value;
+        let c;
+        c=parseInt(a)/parseInt(b);
+        document.getElementById('c').innerHTML=document.getElementById('c').textContent+c;
+    }
+</script>
+
+</body>
+</html>
