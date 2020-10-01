@@ -11,7 +11,9 @@
 <input type="text" id="txtValue"/>
 <input type="button" id="btnAdd" value="Add" onclick="add_element_to_array();"/>
 <input type="button" id="btnDisplay" value="Display" onclick="display_array();"/>
+<input type="button" id="btnMaxarray" value="Maxarray" onclick="max_array();"/>
 <div id="result"></div>
+
 <script>
 let x=0;
 let array= Array();
@@ -19,14 +21,23 @@ function add_element_to_array() {
     array[x] = document.getElementById("txtValue").value;
     alert("Element: " + array[x] + " Added at index " + x);
     x++;
-    document.getElementById("txtValue ").value = "";
-}
+    document.getElementById("txtValue").value = "";
+}b
 function display_array() {
     let e = "<hr/>";
     for (let i = 0; i < array.length; i++) {
-        e += "Element " + i + " = " + array[i] + "<br/>";
+        e += "Element " + i + " = " + array[i] ;
     }
     document.getElementById("result").innerHTML = e;
+}
+function max_array(){
+    let max=array[0];
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+    }
+    document.getElementById("result").innerText=max;
 }
 </script>
 </body>
