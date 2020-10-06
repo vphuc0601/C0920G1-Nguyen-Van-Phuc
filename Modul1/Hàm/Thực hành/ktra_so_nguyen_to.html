@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>isprime</title>
+</head>
+<body>
+<script>
+    let n = prompt("Nhập số:");
+    let array = new Array(n);
+    for (let i = 0; i < n; i++) {
+        array[i] = prompt("Nhập số: " + i)
+    }
+    alert(array);
+
+    alert(dayso(array));
+
+    function dayso(arr) {
+        for (let i = 0; i < array.length; i++)
+            if (arr[i] <= 1) {
+                alert('Day ko la so ng to:' + arr[i])
+            } else if (arr[i] > 1 && (arr[i] % 2 === 0 || arr[i] % 3 === 0)) {
+                alert('Day ko la so ng to:' + arr[i])
+            } else
+                alert('Day la so ng to:' + arr[i]);
+    }
+
+</script>
+</body>
+</html>

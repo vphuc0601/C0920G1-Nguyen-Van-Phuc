@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>swap</title>
+</head>
+<body>
+<script>
+    let a=parseFloat(prompt('Nhap so a:'));
+    let b=parseFloat(prompt('Nhap so b'));
+    let arr=[a,b]
+    alert(arr[0])
+    swap2SoNguyen(a,b)
+    function swap2SoNguyen(a,b) {
+        let c;
+        if (Number.isInteger(a)&&Number.isInteger(b)){
+            c=arr[0];
+           arr[0]=arr[1];
+            arr[1]=c;
+            alert(arr)
+        }
+        else
+        {
+            alert('Ban da nhap sai')
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ham2.2</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Ban kinh"));
+    // */ khai báo hàm nếu ko sử dụng biến thì ko cần gắn cho hàm vd: hinhtron(a).
+    // Nên sử dụng biến cục bộ vì thứ tự khai báo có ảnh hưởng đến khối lệnh.
+    // Nếu khai báo biến toàn cục thì alert hiển thị phải ở ngoài function
+
+    hinhtron(a);
+
+    function hinhtron(a) {
+        let s;
+        let c;
+        s = a * a * Math.PI;
+        alert("Dien tich hinh tron" + s);
+        c = 2 * a * Math.PI;
+        alert("Chu vi hinh tron" + c);
+
+    }
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ham5</title>
+</head>
+<body>
+<script>
+    let arr1=["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let arr2=["UrsaMinor", "Tarurus", "Cygnus", "Lyra", "Aquila", "UrsaMajor", "Leo"];
+    let n=prompt('Nhap ten');
+    let e=seach(arr1,arr2);
+    function seach(arr1,arr2) {
+        for (let i=0; i<arr1.length; i++){
+            if (n==arr1[i]){
+                d=arr2[i];
+            }
+            else if (n==arr2[i]){
+                 d=arr1[i];
+            }
+                 else {
+                     d='Khong co trong thu vien';
+                 }
+        }return  d;
+    }
+    alert(d);
+</script>
+</body>
+</html>

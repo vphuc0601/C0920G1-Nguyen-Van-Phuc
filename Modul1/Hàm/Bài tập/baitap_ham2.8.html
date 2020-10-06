@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>swap_mang</title>
+</head>
+<body>
+<script>
+    let n=prompt('Nhap vao so ptu cua mang;');
+    let array= new Array(n);
+    for (i=0; i<n; i++){
+        array[i]=prompt('Nhap ptu thu'+ i)
+    }
+    alert(array);
+    function swapMang() {
+        for (let i=0; i<n; i++){
+            let temp=array[i];
+                array[i]=array[--n];
+                array[n]=temp;
+        }
+        alert(array);
+    }
+    swapMang()
+</script>
+
+</body>
+</html>

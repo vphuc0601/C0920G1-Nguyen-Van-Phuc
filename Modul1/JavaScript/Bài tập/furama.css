@@ -1,4 +1,4 @@
 .img {
     background-image: url('https://tours-danang.com/wp/wp-content/uploads/2017/07/furama2.jpg');
-    background-repeat: no-repeat;
+    background-size: cover;
 }
