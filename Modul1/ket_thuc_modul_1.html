@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ket_thuc_modul_cau1</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhap độ dài của mảng:"));
+    let array = new Array(n);
+    while (n > 20){
+        n = parseInt(prompt("Nhap lại độ dài của mảng:"));
+    }
+    for (let i = 0; i < n; i++) {
+        array[i] = parseInt(prompt("nhap pt thu: " + i));
+    }
+    function Sum(arr) {
+        let sum=0;
+        for (let i = 0; i < arr.length; i++)
+        {
+            if (arr[i] % 3 === 0 && arr[i] % 5 === 0) {
+                sum += arr[i]
+            }
+        }
+        return sum;
+    }
+    alert(Sum(array));
+
+</script>
+</body>
+</html>

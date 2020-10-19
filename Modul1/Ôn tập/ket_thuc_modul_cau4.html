@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cau4</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div id="display"></div>
+<script>
+    class KhachHang{
+        constructor(id, name, phone, address, email ) {
+            this.id=id;
+            this.name=name;
+            this.phone=phone;
+            this.address=address;
+            this.email=email
+        }
+        getId(){
+            return this.id
+        }
+        getName(){
+            return this.name
+        }
+        getPhone(){
+            return this.phone
+        }
+        getAddress(){
+            return this.address
+        }
+        getEmail(){
+            return this.email
+        }
+        setId(value){
+            this.id=value
+        }
+        setName(value){
+            this.name=value
+        }
+        setPhone(value){
+            this.phone=value
+        }
+        setAddress(value){
+            this.address=value
+        }
+        setEmail(value){
+            this.email=value
+        }
+    }
+    <tr>
+        <td><button onClick="themKhachHang()">Thêm Khách Hàng</button></td>
+        <td><button onClick="timKhachHang()">Tìm Khách Hàng</button> </td>
+    </tr>
+    let KhachHangList = []
+    KhachHangList.push(new KhachHang(1, "Nguyễn Văn A", "0123456789", "Thanh Khê", "nguyenvanA@gmail.com"))
+    KhachHangList.push(new KhachHang(2, "Nguyễn Văn B", "0123456798", "Hải Châu", "nguyenvanB@gmail.com"))
+    KhachHangList.push(new KhachHang(3, "Nguyễn Văn C", "0123456879", "Ngũ Hành Sơn", "nguyenvanC@gmail.com"))
+    function displayKhachHang() {
+        let temp = "<button class='btn btn-info' onclick='addKhachHang()'>AddKhachHang</button>"
+        temp += "<table class='table'>";
+        temp += "<tr>" +
+            "<th>Id</th>" +
+            "<th>Name</th>" +
+            "<th>Phone</th>" +
+            "<th>Address</th>" +
+            "<th>Email</th>" +
+            "</tr>"
+        for (let i in KhachHangList) {
+            temp += "<tr>" +
+                "<td>" + KhachHangList[i].getId() + "</td> " +
+                "<td>" + KhachHangList[i].getName() + "</td> " +
+                "<td>" + KhachHangList[i].getPhone() + "</td> " +
+                "<td>" + KhachHangList[i].getAddress() + "</td> " +
+                "<td>" + KhachHangList[i].getEmail() + "</td> " +
+                "<td><button type='button' class='btn btn-primary' onclick='addKhachHang(" + i + ")'>Add</button>" +
+                "<button type='button' class='btn btn-danger' onclick='seachKhachHang(" + i + ")'>Seach</button></td> " +
+                "</tr>"
+        }
+        temp += "</table>"
+        document.getElementById("display").innerHTML = temp;
+    }
+    function addKhachHang(index) {
+        let name = (document.getElementById("nameEdit").value);
+        let phone = (document.getElementById("phoneEdit").value);
+        let address = (document.getElementById("addressEdit").value);
+        let idEdit = (document.getElementById("idEdit").value);
+        let email = (document.getElementById("emailEdit").value);
+        let khachHang = new khachHang(idEdit, name, phone, address, email);
+        productList.push(khachHang);
+        document.getElementById("add").innerText = "";
+        displayKhachHang();
+    }
+    displayKhachHang();
+</script>
+</body>
+</html>

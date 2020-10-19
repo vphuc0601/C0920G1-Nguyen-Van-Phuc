@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+<script>
+    class Rectangle{
+        constructor(length,width) {
+            this.lenght = length;
+            this.width = width;
+        }
+        getLenght(){
+            return this.lenght;
+        }
+        getWidth(){
+            return this.width;
+        }
+        getPerimeter(){
+            this.perimeter= (this.lenght+this.width)*2;
+            return this.perimeter
+        }
+        getAcreage(){
+            this.Acreage = this.lenght*this.width;
+            return this.Acreage;
+        }
+    }
+    let a = new Rectangle(5,2);
+    alert("Chu vi hinh tron:" + a.getPerimeter());
+    alert("Dien tich hinh tron:" + a.getAcreage());
+</script>
+</body>
+</html>

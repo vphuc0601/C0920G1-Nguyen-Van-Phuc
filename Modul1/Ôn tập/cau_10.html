@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function bai10() {
+        let str = prompt("");
+        let  array = [];
+        let set = new Set();
+        let m = str.length;
+        for (let i = 0 ; i < m; i++){
+            let char = str.charAt(i);
+            document.write(char +"<br>");
+        }
+        document.write("so ky tu co trong chuoi la "+m);
+        document.write("<br>");
+​
+//b
+        for (let i = 0 ; i < m; i++){
+            let char = str.charAt(i);
+            if (array.length == 0 ){
+                array.push(char);
+            }
+            let exist = 0;
+            for (let  j =0 ; j < array.length ; j++){
+                if (char == array[j]){
+                    exist =1;
+                }
+            }
+​
+            if(exist == 0) {
+                array.push(char);
+            }
+​
+        }
+//c
+        for (let j =0 ; j < array.length ; j++){
+            let number = 0;
+            for (let i = 0 ; i < m; i++){
+                let char = str.charAt(i);
+                if (char == array[j]){
+                    number++;
+                }
+            }
+            document.write(array[j] + ":" + number);
+            document.write("<br>");
+        }
+    }
+​
+    function some(array,char) {
+        for (let  j =0 ; j < array.length ; j++){
+            if (char == array[j]){
+                return 1;
+            }
+        }
+        return 0;
+    }
+    bai10();
+    function prefix_sums(arr) {
+        let arr1 = [];
+        for (let i = 0; i < arr.length; i++) {
+            arr1[i] = 0;
+            for (let j = 0; j < i + 1; j++) {
+                arr1[i] += arr[j];
+            }
+        }
+        return arr1;
+    }
+    console.log(prefix_sums([1, 2, 3]));
+
+</script>
+</body>
+</html>

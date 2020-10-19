@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task1</title>
+    <link rel="stylesheet" href="furama.css">
+</head>
+<body class="img">
+<form>
+<table align="left">
+    <tr><td>INFORMATION</td></tr>
+    <tr>
+        <td>Name</td>
+        <td><input id="name" type="text"> </td>
+    </tr>
+    <tr>
+        <td>CMND</td>
+        <td><input id="cmnd" type="number"> </td>
+    </tr>
+    <tr>
+        <td>Birthday</td>
+        <td><input id="birthday" type="date"></input> </td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><input id="mail" type="text"></td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td ><textarea id="address" rows="4"></textarea> </td>
+    </tr>
+    <tr>
+        <td>TypeSever</td>
+        <td>
+        <select id="sever">
+            <option>Diamond</option>
+            <option>Platinum</option>
+            <option>Gold</option>
+            <option>Silver</option>
+            <option>Member</option>
+        </select>
+        </td>
+    </tr>
+    <tr>
+        <td>TypeCustom</td>
+        <td>
+            <select id="custom">
+                <option>Vip</option>
+                <option>Business</option>
+                <option>Normal</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>TypeRoom</td>
+        <td>
+            <select id="room">
+                <option>-Villa 500$/day</option>
+                <option>-House 300$/day</option>
+                <option>-Normal 100$/day</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Discount</td>
+        <td><input id="discount" type="number"></td>
+    </tr>
+    <tr>
+        <td>QuanlityIncluded</td>
+        <td><input id="quanlity" type="number"></td>
+    </tr>
+    <tr>
+        <td>Your travel day</td>
+    </tr>
+    <tr>
+        <td>Check in day</td>
+        <td>Check out day</td>
+    </tr>
+    <tr>
+        <td><input id="d1" type="date"></td>
+        <td><input id="d2" type="date"></td>
+    </tr>
+
+    <tr>
+        <td>
+            <button type=button onclick="confirm()">Confirm</button>
+            <button type=button onclick="reset">Reset</button>
+        </td>
+    </tr>
+
+</table>
+    <table align="left">
+        <tr><td>PERSONAL INFORMATION</td></tr>
+        <tr>
+            <td>Name:<span id="a"></span></td>
+        </tr>
+        <tr><td>CMND:<span id="b"></span></td></tr>
+        <tr><td>Birthday:<span id="c"></span></td></tr>
+        <tr><td>Email:<span id="d"></span></td></tr>
+        <tr><td>Address:<span id="e"></span></td></tr>
+        <tr><td>TypeSever:<span id="f"></span></td></tr>
+        <tr><td>TypeRoom:<span id="g"></span></td></tr>
+        <tr><td>TypeCustom:<span id="h"></span></td></tr>
+        <tr><td>Discount:<span id="k"></span></td></tr>
+        <tr><td>QuanlityIncluded:<span id="l"></span></td></tr>
+        <tr><td>Rend day:<span id="m"></span></td></tr>
+    </table>
+</form>
+
+<script src="furama.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quan_ly</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<tr>
+    <td><button class='btn btn-info' onClick="themKhachHang()">Thêm Khách Hàng</button></td>
+</tr>
+<div id="display"></div>
+<div id="them"></div>
+<div>
+    <input type="text" id="find">
+    <button onclick="findCustomer()">Find</button>
+</div>
+
+<script>
+    class khachHang{
+        constructor(id, name, phone, address, email) {
+            this.id=id;
+            this.name=name;
+            this.phone=phone;
+            this.address=address;
+            this.email=email;
+        }
+        getId(){
+            return this.id;
+        }
+        getName(){
+            return this.name;
+        }
+        getPhone(){
+            return this.phone;
+        }
+        getAddress(){
+            return this.address;
+        }
+        getEmail(){
+            return this.email
+        }
+        setId(){
+            this.id=value;
+        }
+        setName(){
+            this.name=value;
+        }
+        setPhone(){
+            this.phone=value
+        }
+        setAddress(){
+            this.address=value
+        }
+        setEmail(){
+            this.email=value
+        }
+    }
+    let khachHangList=[];
+        khachHangList.push(new khachHang(1, 'Nguyen Van A', '0913 345 678', 'Thanh Khê', 'nguyenvanA@gmail.com'));
+        khachHangList.push(new khachHang(1, 'Nguyen Van B', '0913 345 546', 'Hải Châu', 'nguyenvanB@gmail.com'));
+        khachHangList.push(new khachHang(1, 'Nguyen Van C', '0913 345 987', 'Hòa Khánh', 'nguyenvanC@gmail.com'));
+    function displayKhachHang() {
+        let temp = "";
+        temp +="<table class='table'>";
+        temp += "<tr>" +
+            "<th>Id</th>" +
+            "<th>Name</th>" +
+            "<th>Phone</th>" +
+            "<th>Address</th>" +
+            "<th>Email</th>" +
+            "</tr>"
+        for (let i in khachHangList) {
+            temp += "<tr>" +
+                "<td>" + khachHangList[i].getId() + "</td> " +
+                "<td>" + khachHangList[i].getName() + "</td> " +
+                "<td>" + khachHangList[i].getPhone() + "</td> " +
+                "<td>" + khachHangList[i].getAddress() + "</td> " +
+                "<td>" + khachHangList[i].getEmail() + "</td> " +
+                "</tr>"
+        }
+        temp += "</table>"
+        document.getElementById("display").innerHTML = temp;
+    }
+    function themKhachHang(index) {
+        let temp = "<h1>Thêm Khách Hàng</h1>"
+        temp += "Id: <input type='text' id='idKhachHang' class='form-control'></br>"
+            + "Name: <input type='text' id='nameEdit' class='form-control'></br>"
+            + "Phone: <input type='text' id='phoneEdit' class='form-control'></br>"
+            + "Address: <input type='text' id='addressEdit' class='form-control'></br>"
+            + "Email: <input type='text' id='emailEdit' class='form-control'></br>"
+            + "<input type='button' class='btn btn-success' value='Thêm' onclick='them()'></br>";
+        document.getElementById("them").innerHTML = temp;
+    }
+
+    function them() {
+        let idKhachHang = (document.getElementById("idKhachHang").value);
+        let name = (document.getElementById("nameEdit").value);
+        let phone = (document.getElementById("phoneEdit").value);
+        let address = (document.getElementById("addressEdit").value);
+        let email = (document.getElementById("emailEdit").value);
+        let khachHang1 = new khachHang(idKhachHang, name, phone, address, email);
+        khachHangList.push(khachHang1);
+        document.getElementById("them").innerText = "";
+        displayKhachHang();
+    }
+    function findCustomer(){
+        let check = document.getElementById('find').value;
+        for (let i = 0; i < khachHangList.length ; i++){
+            if (check === khachHangList[i].getName()){
+                alert("Có " + khachHangList[i].getName() + khachHangList[i].getAddress());
+                break;
+            } else {
+                alert("k");
+                break;
+            }
+        }
+    }
+    displayKhachHang()
+  </script>
+</body>

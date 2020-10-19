@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt('Nhập n:'));
+    while (isNaN(n)) {
+        n = parseInt(prompt('Nhập lại n là số'))
+    }
+    let array = new Array(n);
+    for (let i = 0; i < n; i++) {
+        array[i] = prompt('Điểm thi' + i)
+    }
+
+    function findMax(array) {
+        let max = array[0];
+        let i ;
+        for (i = 0; i < array.length; i++) {
+            if (max < array[i]) {
+                max = parseInt(array[i])
+            }
+        }
+        alert('Điểm số cao nhất là :'+ max)
+    }
+
+    findMax(array)
+</script>
+</body>
+</html>

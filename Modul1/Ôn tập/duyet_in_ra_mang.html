@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = prompt("Nhập số:");
+    let array = new Array(n);
+    for (let i = 0; i < n; i++) {
+        array[i] = prompt("Nhập số: " + i)
+    }
+    alert(array);
+    let x=parseInt(prompt('Nhap x'));
+    function tryRemoveFromArray(array,x){
+        for (let j=0; j<array.length; j++){
+            if (x==parseInt(array[j])){
+                array.splice(j,1);
+            }
+        }
+        alert(array);
+    }
+    tryRemoveFromArray(array,x)
+</script>
+</body>
+</html>

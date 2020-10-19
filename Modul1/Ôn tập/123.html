@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt('Nhap do dai cua mang'));
+    while (isNaN(n)){
+        n =parseInt(prompt("nhập lại N là số"))
+    }
+    let array = new Array(n);
+    for (let i=0; i<n; i++){
+        array[i]=prompt('Nhap phan tu thu'+i)
+    }alert(array);
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhập số:"));
+    while (isNaN(n)){
+        n =parseInt(prompt("nhập lại n là số"))
+    }
+    let a =1;
+    let b = 1;
+    let c = 2;
+    let check = false;
+    function isFibonacci(n) {
+       if (n<1){
+           alert("False");
+           return check
+       }
+        else if (n<4){
+           alert("True");
+           check = true;
+           return check;
+       }
+        while (c < n){
+            a = b;
+            b = c;
+            c = a + b ;
+        }
+        if (c === n){
+            check = true;
+            console.log(check);
+            alert("True");
+            return check;
+        }else {
+            alert("False");
+            return check;
+        }
+    }
+    isFibonacci(n)
+</script>
+</body>
+</html>
