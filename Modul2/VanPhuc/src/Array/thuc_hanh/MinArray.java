@@ -14,7 +14,6 @@ public class MinArray {
                 return min;
             }
         }
-
         return 0;
     }
 }

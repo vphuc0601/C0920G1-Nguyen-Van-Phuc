@@ -4,22 +4,22 @@ import java.util.Scanner;
 
 public class Bmi {
     public static void main(String[] args) {
-        double weight, height, BMI;
-        Scanner scanner= new Scanner(System.in);
-        System.out.println("Enter your weight:");
-        weight=scanner.nextDouble();
-        System.out.println("Enter your height:");
-        height=scanner.nextDouble();
-        BMI=weight / Math.pow(height, 2);System.out.printf("%-20s%s", "bmi", "Interpretation\n");
+        Scanner input=new Scanner(System.in);
+        double weight, height, bmi;
+        System.out.println("Your weight:");
+        weight=input.nextDouble();
+        System.out.println("Your height:");
+        height= input.nextDouble();
+        bmi = weight / Math.pow(height, 2);
+        System.out.printf("%-20s%s", "bmi", "Interpretation\n");
 
-        if (BMI < 18)
-            System.out.printf("%-20.2f%s", BMI, "Underweight");
-        else if (BMI < 25.0)
-            System.out.printf("%-20.2f%s", BMI, "Normal");
-        else if (BMI < 30.0)
-            System.out.printf("%-20.2f%s", BMI, "Overweight");
+        if (bmi < 18)
+            System.out.printf("%-20.2f%s", bmi, "Underweight");
+        else if (bmi < 25.0)
+            System.out.printf("%-20.2f%s", bmi, "Normal");
+        else if (bmi < 30.0)
+            System.out.printf("%-20.2f%s", bmi, "Overweight");
         else
-            System.out.printf("%-20.2f%s", BMI, "Obese");
-
+            System.out.printf("%-20.2f%s", bmi, "Obese");
     }
 }

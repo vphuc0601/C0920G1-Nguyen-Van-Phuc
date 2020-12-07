@@ -1,4 +1,4 @@
-package Abstract_Interface.thuc_hanh;
+package animal;
 
 public class Tiger {
 }

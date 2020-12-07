@@ -1,6 +1,6 @@
 package FuramaResort2.Models;
 
-public abstract class Custormer {
+public class Custosmer extends Services {
     String hoten;
     String ngaysinh;
     String gioitinh;
@@ -10,7 +10,7 @@ public abstract class Custormer {
     String loaikhach;
     String diachi;
 
-    public Custormer(String hoten, String ngaysinh, String gioitinh, String cmnd, String phone, String email, String loaikhach, String diachi) {
+    public Custosmer(String hoten, String ngaysinh, String gioitinh, String cmnd, String phone, String email, String loaikhach, String diachi) {
         this.hoten = hoten;
         this.ngaysinh = ngaysinh;
         this.gioitinh = gioitinh;
@@ -19,6 +19,10 @@ public abstract class Custormer {
         this.email = email;
         this.loaikhach = loaikhach;
         this.diachi = diachi;
+    }
+
+    public Custosmer() {
+
     }
 
     public String getHoten() {
@@ -85,13 +89,15 @@ public abstract class Custormer {
         this.diachi = diachi;
     }
 
-    public String showInformationCustosmers() {
+    @Override
+    public String showInfor() {
         return toString();
     }
 
+
     @Override
     public String toString() {
-        return "Custormer{" +
+        return "Custosmer{" +
                 "hoten='" + hoten + '\'' +
                 ", ngaysinh='" + ngaysinh + '\'' +
                 ", gioitinh='" + gioitinh + '\'' +

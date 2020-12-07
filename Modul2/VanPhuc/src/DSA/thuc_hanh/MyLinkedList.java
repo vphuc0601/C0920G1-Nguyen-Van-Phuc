@@ -2,10 +2,10 @@ package DSA.thuc_hanh;
 
 import org.w3c.dom.Node;
 
-public class MyLinkenList {
+public class MyLinkedList {
     private Node head;
     private int numNodes;
-    public MyLinkenList(Object data){
+    public MyLinkedList(Object data){
         head=new Node(data);
     }
     private class Node {
@@ -52,5 +52,4 @@ public class MyLinkenList {
             temp = temp.next;
         }
     }
-
 }

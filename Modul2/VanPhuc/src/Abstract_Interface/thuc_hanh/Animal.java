@@ -1,2 +1,5 @@
-package Abstract_Interface.thuc_hanh;public class Animal {
+package Abstract_Interface.thuc_hanh;
+
+public abstract class Animal{
+    public abstract String makeSound();
 }

@@ -3,16 +3,11 @@ package Ke_Thua.bai_tap;
 public class Circle {
     private String color;
     private double radius;
+    public Circle(){}
 
-    public Circle(double radius, String color) {
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
+    public Circle(String color, double radius) {
         this.color = color;
+        this.radius = radius;
     }
 
     public double getRadius() {
@@ -22,8 +17,15 @@ public class Circle {
     public void setRadius(double radius) {
         this.radius = radius;
     }
+    public double area(){
+        return getRadius()*Math.PI;
+    }
 
-    public double getArea(){
-        return Math.PI*Math.pow(this.radius,2);
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "color='" + color + '\'' +
+                ", radius=" + radius +
+                '}';
     }
 }
