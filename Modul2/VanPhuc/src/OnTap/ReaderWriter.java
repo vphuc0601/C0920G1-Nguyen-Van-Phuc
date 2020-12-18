@@ -1,5 +1,7 @@
 package OnTap;
 
+import CaseStudy.Models.Villa;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;

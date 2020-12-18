@@ -3,7 +3,7 @@ package DSA.bai_tap;
 import java.util.Arrays;
 
 public class ArrayList<E> {
-    private int size=0;
+    private int size=1;
     private static final int DEFAULT_CAPACITY=10;
     private Object[] elements;
     private E[] data = (E[]) new Object[DEFAULT_CAPACITY];
