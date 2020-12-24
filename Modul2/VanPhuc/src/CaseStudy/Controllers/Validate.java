@@ -16,7 +16,7 @@ public class Validate {
         return id.matches(regex);
     }
     public static boolean checkTenDichVu(String tenDichVu){
-        regex="^(Villa|House|Room)$";
+        regex="^Diamond|Platinium|Gold|Silver|Member$";
         return tenDichVu.matches(regex);
     }
     public static boolean checkDienTichSuDung(String dienTichSuDung){

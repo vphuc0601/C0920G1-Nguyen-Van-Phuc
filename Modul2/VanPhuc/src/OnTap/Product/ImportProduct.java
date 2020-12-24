@@ -1,4 +1,4 @@
-package OnTap;
+package OnTap.Product;
 
 public class ImportProduct extends Product {
     private String priceImport;

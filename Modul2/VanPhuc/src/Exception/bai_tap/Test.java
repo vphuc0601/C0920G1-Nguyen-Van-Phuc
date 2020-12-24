@@ -2,7 +2,7 @@ package Exception.bai_tap;
 
 import java.util.Scanner;
 
-public class main {
+public class Test {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

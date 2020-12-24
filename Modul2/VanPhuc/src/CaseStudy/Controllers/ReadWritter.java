@@ -1,9 +1,6 @@
 package CaseStudy.Controllers;
 
-import CaseStudy.Models.Customer;
-import CaseStudy.Models.House;
-import CaseStudy.Models.Room;
-import CaseStudy.Models.Villa;
+import CaseStudy.Models.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -94,6 +91,25 @@ public class ReadWritter {
         }
         return list;
     }
+    public static List<Employee> readFileEmployee(String pathFile) {
+        List<Employee> list = new ArrayList<>();
+        Employee employee=null;
+        try {
+            FileReader reader = new FileReader(pathFile);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null && !line.equals("")) {
+                String[] elementLine = line.split(",");
+                employee=new Employee(elementLine[0],elementLine[1],elementLine[2]);
+                list.add(employee);
+            }
+            bufferedReader.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
     public static void writeFileCustomer(String pathFile, List<Customer> customers) {
         try {
             FileWriter writer = new FileWriter(pathFile,true);
@@ -109,14 +125,15 @@ public class ReadWritter {
             e.printStackTrace();
         }
     }
-    public static void writeFileVilla(String pathFile, List<Villa> villas) {
+    public static void writeFileVilla(String pathFile, List<Villa> villaList) {
         try {
             FileWriter writer = new FileWriter(pathFile,true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            for (Villa villa:villas) {
+            for (Villa villa:villaList) {
                 bufferedWriter.write(villa.getId()+","+villa.getTenDichVu()+","+villa.getDienTichSudung()+","+villa.getChiPhiThue()+","+villa.getSoNguoiToiDa()+","+
                         villa.getKieuThue()+","+villa.getTieuChuanPhong()+","+villa.getTienNghiKhac()+","+villa.getSoTang()+","+villa.getDienTichHoBoi());
                 bufferedWriter.newLine();
+
             }
             bufferedWriter.close();
         } catch (IOException e) {

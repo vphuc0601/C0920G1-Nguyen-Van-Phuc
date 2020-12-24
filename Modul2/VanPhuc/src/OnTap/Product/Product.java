@@ -1,4 +1,4 @@
-package OnTap;
+package OnTap.Product;
 
 public abstract class Product {
     private String id;

@@ -1,4 +1,4 @@
-package OnTap;
+package OnTap.Product;
 
 import CaseStudy.Models.Villa;
 

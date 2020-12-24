@@ -1,4 +1,4 @@
-package OnTap;
+package OnTap.Product;
 
 import java.io.*;
 import java.util.ArrayList;

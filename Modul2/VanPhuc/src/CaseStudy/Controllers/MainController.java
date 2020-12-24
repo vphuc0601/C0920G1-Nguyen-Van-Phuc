@@ -1,12 +1,7 @@
 package CaseStudy.Controllers;
 
-import CaseStudy.Models.Customer;
-import CaseStudy.Models.House;
-import CaseStudy.Models.Room;
-import CaseStudy.Models.Villa;
-import OnTap.ReaderWriter;
+import CaseStudy.Models.*;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class MainController {
@@ -15,7 +10,6 @@ public class MainController {
     public static List<Room> roomList = new ArrayList<>();
     public static List<Customer> customerList = new ArrayList<>();
     public static Scanner input = new Scanner(System.in);
-    private static Customer customer = new Customer();
 
 
     public static void displayMenu() {
@@ -27,26 +21,14 @@ public class MainController {
         System.out.println("5. Add New Booking");
         System.out.println("6. Show Information of Employee");
         System.out.println("7. Exit");
-        int choice = Integer.parseInt(input.nextLine());
+        String choice = input.nextLine();
         switch (choice) {
-            case 1:
-                addNewServices();
-                break;
-            case 2:
-                showServices();
-                break;
-            case 3:
-                addNewCustomers();
-                break;
-            case 4:
-                showInformationCustomers();
-                break;
-            case 5:
-                addNewBooking();
-                break;
-            case 6:
-                showInformationEmployee();
-                break;
+            case "1" : addNewServices();break;
+            case "2" : showServices();break;
+            case "3" : addNewCustomers();break;
+            case "4" : showInformationCustomers();break;
+            case "5" : addNewBooking();break;
+            case "6" : showInformationEmployee();break;
         }
     }
 
@@ -62,27 +44,65 @@ public class MainController {
                 Villa villa = new Villa(inputIdVilla(), inputtenDichVu(), inputDienTichSudung(), inputChiPhiThue(), inputSoNguoiToiDa(),
                         inputKieuThue(), inputTieuChuanPhong(), inputTienNghiKhac(),
                         inputSoTang(), inputDienTichHoBoi());
+                villaList.add(villa);
                 ReadWritter.writeFileVilla("src/CaseStudy/Data/Villa.csv", villaList);
             }
             break;
             case 2: {
                 House house = new House(inputIdHouse(), inputtenDichVu(), inputDienTichSudung(), inputChiPhiThue(), inputSoNguoiToiDa(),
                         inputKieuThue(), inputTieuChuanPhong(), inputSoTang(), inputTienNghiKhac());
+                houseList.add(house);
                 ReadWritter.writeFileHouse("src/CaseStudy/Data/House.csv", houseList);
             }
             break;
             case 3: {
                 Room room = new Room(inputIdRoom(), inputtenDichVu(), inputDienTichSudung(), inputChiPhiThue(), inputSoNguoiToiDa(),
                         inputKieuThue(), inputDichVuMienPhi());
-
+                roomList.add(room);
                 ReadWritter.writeFileRoom("src/CaseStudy/Data/Room.csv", roomList);
             }
             break;
             case 4:
                 displayMenu();
+                break;
             case 5:
                 System.exit(0);
+                break;
         }
+    }
+
+    public static void showServices() {
+        System.out.println("1. Show all Villa");
+        System.out.println("2. Show all House");
+        System.out.println("3. Show all Room");
+        System.out.println("4. Show All Name Villa Not Duplicate");
+        System.out.println("5.Show All Name House Not Duplicate");
+        System.out.println("6.Show All Name Name Not Duplicate");
+        System.out.println("7. Back to menu");
+        System.out.println("8. Exit");
+        int choice = input.nextInt();
+        switch (choice) {
+            case 1:
+                showAllVilla();
+                break;
+            case 2:
+                showAllHouse();
+                break;
+            case 3:
+                showAllRoom();
+                break;
+            case 4:
+                showAllNameVillaNotDuplicate();
+            case 5:
+                showAllNameHouseNotDuplicate();
+            case 6:
+                showAllNameRoomNotDuplicate();
+            case 7:
+                displayMenu();
+            case 8:
+                System.exit(0);
+        }
+
     }
 
     private static String inputIdVilla() {
@@ -268,41 +288,6 @@ public class MainController {
         return input.nextLine();
     }
 
-
-    public static void showServices() {
-        System.out.println("1. Show all Villa");
-        System.out.println("2. Show all House");
-        System.out.println("3. Show all Room");
-        System.out.println("4. Show All Name Villa Not Duplicate");
-        System.out.println("5.Show All Name House Not Duplicate");
-        System.out.println("6.Show All Name Name Not Duplicate");
-        System.out.println("7. Back to menu");
-        System.out.println("8. Exit");
-        int choice = input.nextInt();
-        switch (choice) {
-            case 1:
-                showAllVilla();
-                break;
-            case 2:
-                showAllHouse();
-                break;
-            case 3:
-                showAllRoom();
-                break;
-            case 4:
-                showAllNameVillaNotDuplicate();
-            case 5:
-                showAllNameHouseNotDuplicate();
-            case 6:
-                showAllNameRoomNotDuplicate();
-            case 7:
-                displayMenu();
-            case 8:
-                System.exit(0);
-        }
-
-    }
-
     public static void addNewCustomers() {
         Customer customer = new Customer(inputNameCustomer(), inputDateOfBirth()
                 , inputGender(), inputIdCard(), inputPhone(), inputEmail(), inputGuest(), inputAddress());
@@ -418,26 +403,36 @@ public class MainController {
             temp++;
         }
     }
-    public static void showAllNameVillaNotDuplicate(){
-        TreeSet<Villa> villaTreeSet=new TreeSet<>();
-        villaTreeSet.addAll(villaList);
+
+    public static void showAllNameVillaNotDuplicate() {
+        TreeSet<Villa> villaTreeSet = new TreeSet<>(villaList);
         System.out.println(villaTreeSet);
 
     }
-    public static void showAllNameHouseNotDuplicate(){
-        TreeSet<House> houseTreeSet=new TreeSet<>();
-        houseTreeSet.addAll(houseList);
+
+    public static void showAllNameHouseNotDuplicate() {
+        TreeSet<House> houseTreeSet = new TreeSet<>(houseList);
         System.out.println(houseTreeSet);
 
     }
-    public static void showAllNameRoomNotDuplicate(){
-        TreeSet<Room> roomTreeSet=new TreeSet<>();
-        roomTreeSet.addAll(roomList);
+
+    public static void showAllNameRoomNotDuplicate() {
+        TreeSet<Room> roomTreeSet = new TreeSet<>(roomList);
         System.out.println(roomTreeSet);
     }
 
     public static void showInformationEmployee() {
+        List<Employee> employeeList = ReadWritter.readFileEmployee("src/CaseStudy/Data/Employee.csv");
+        for (int i = 1; i <= employeeList.size(); i++) {
+            Employee employee = new Employee();
+            employee = employeeList.get(i - 1);
+            Map map = new HashMap();
+            map.put(i, employee);
+            Set set = map.keySet();
+            for (Object key : set) {
+                System.out.println(key + ". " + map.get(key));
+            }
+        }
     }
-
 }
 

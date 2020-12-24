@@ -1,8 +1,6 @@
 package ThiModul2;
 
-import OnTap.ExportProduct;
-import OnTap.ImportProduct;
-import OnTap.ReaderWriter;
+import OnTap.Product.ReaderWriter;
 
 import java.util.ArrayList;
 import java.util.List;
