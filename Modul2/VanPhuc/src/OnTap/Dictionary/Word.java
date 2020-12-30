@@ -54,4 +54,15 @@ public class Word {
     public void setSynonymous(String synonymous) {
         this.synonymous = synonymous;
     }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "pronoun='" + pronoun + '\'' +
+                ", noun='" + noun + '\'' +
+                ", adjective='" + adjective + '\'' +
+                ", verb='" + verb + '\'' +
+                ", synonymous='" + synonymous + '\'' +
+                '}';
+    }
 }

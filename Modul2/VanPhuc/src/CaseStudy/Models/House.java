@@ -1,6 +1,6 @@
 package CaseStudy.Models;
 
-public class House extends Services{
+public class House extends Services implements Comparable<House>{
     public House(String id,String tenDichVu, String dienTichSudung, String chiPhiThue, String soNguoiToiDa, String kieuThue) {
         super(id, tenDichVu, dienTichSudung, chiPhiThue, soNguoiToiDa, kieuThue);
     }
@@ -58,5 +58,10 @@ public class House extends Services{
     @Override public void showInfor(){
 
         System.out.println(toString());
+    }
+
+    @Override
+    public int compareTo(House house) {
+        return this.getId().compareTo(house.getId());
     }
 }

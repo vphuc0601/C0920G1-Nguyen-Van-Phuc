@@ -1,6 +1,7 @@
 package CaseStudy.Controllers;
 
 import CaseStudy.Models.*;
+import OnTap.Test.Student;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -180,5 +181,24 @@ public class ReadWritter {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public static List<Student> readFileStudent(String pathFile) {
+        List<Student> list = new ArrayList<>();
+        Student student=null;
+        try {
+            FileReader reader = new FileReader(pathFile);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null && !line.equals("")) {
+                String[] elementLine = line.split(",");
+                student= new Student(elementLine[0],elementLine[1],elementLine[2],elementLine[3]);
+                list.add(student);
+            }
+            bufferedReader.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

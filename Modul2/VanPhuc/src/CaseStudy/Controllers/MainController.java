@@ -1,7 +1,7 @@
 package CaseStudy.Controllers;
 
 import CaseStudy.Models.*;
-
+import java.lang.*;
 import java.util.*;
 
 public class MainController {
@@ -405,20 +405,31 @@ public class MainController {
     }
 
     public static void showAllNameVillaNotDuplicate() {
+        List<Villa> villaList = ReadWritter.readFileVilla("src/CaseStudy/Data/Villa.csv");
         TreeSet<Villa> villaTreeSet = new TreeSet<>(villaList);
-        System.out.println(villaTreeSet);
-
+        villaTreeSet.addAll(villaList);
+        for (Villa villa:villaTreeSet) {
+            System.out.println(villa);
+        }
     }
 
     public static void showAllNameHouseNotDuplicate() {
+        List<House> houseList=ReadWritter.readFileHouse("src/CaseStudy/Data/House.csv");
         TreeSet<House> houseTreeSet = new TreeSet<>(houseList);
-        System.out.println(houseTreeSet);
-
+        houseTreeSet.addAll(houseList);
+        for (House house:houseTreeSet) {
+            System.out.println(house);
+        }
     }
 
     public static void showAllNameRoomNotDuplicate() {
+        List<Room> roomList=ReadWritter.readFileRoom("src/CaseStudy/Data/Room.csv");
         TreeSet<Room> roomTreeSet = new TreeSet<>(roomList);
-        System.out.println(roomTreeSet);
+        roomTreeSet.addAll(roomList);
+        for (Room room: roomTreeSet) {
+            System.out.println(room);
+        }
+
     }
 
     public static void showInformationEmployee() {

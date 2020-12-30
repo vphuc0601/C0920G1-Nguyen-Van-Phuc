@@ -1,6 +1,6 @@
 package CaseStudy.Models;
 
-public class Room extends Services{
+public class Room extends Services implements Comparable<Room>{
 
     String dichVuMienPhi;
 
@@ -30,5 +30,11 @@ public class Room extends Services{
                 ", soNguoiToiDa='" + soNguoiToiDa + '\'' +
                 ", kieuThue='" + kieuThue + '\'' +
                 ", dichVuMienPhi='" + dichVuMienPhi;
+    }
+
+
+    @Override
+    public int compareTo(Room room) {
+        return this.getId().compareTo(room.getId());
     }
 }

@@ -1,6 +1,6 @@
 package CaseStudy.Models;
 
-public class Villa extends Services{
+public class Villa extends Services implements Comparable<Villa>{
     String dienTichHoBoi;
     String tieuChuanPhong;
     String soTang;
@@ -51,11 +51,11 @@ public class Villa extends Services{
     @Override
     public String toString() {
         return "Villa: " +
-                "dienTichHoBoi='" + dienTichHoBoi + '\'' +
+                "id='" + id + '\'' +
+                ",dienTichHoBoi='" + dienTichHoBoi + '\'' +
                 ", tieuChuanPhong='" + tieuChuanPhong + '\'' +
                 ", soTang='" + soTang + '\'' +
                 ", tienNghiKhac='" + tienNghiKhac + '\'' +
-                ", id='" + id + '\'' +
                 ", tenDichVu='" + tenDichVu + '\'' +
                 ", dienTichSudung='" + dienTichSudung + '\'' +
                 ", chiPhiThue='" + chiPhiThue + '\'' +
@@ -67,4 +67,8 @@ public class Villa extends Services{
         System.out.println(toString());
     }
 
+    @Override
+    public int compareTo(Villa villa) {
+        return this.getId().compareTo(villa.getId());
+    }
 }

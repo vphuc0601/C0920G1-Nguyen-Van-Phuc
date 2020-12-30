@@ -57,7 +57,9 @@ public class ManagerProduct {
                         + importProduct.getSerialProduct() + "," + importProduct.getName() + ","
                         + importProduct.getPrice() + "," + importProduct.getAmount() + ","
                         + importProduct.getManufacturers() + "," + importProduct.getPriceImport() + ","
-                        + importProduct.getProvinceImport() + "," + importProduct.getTaxImport())
+                        + importProduct.getProvinceImport() + "," + importProduct.getTaxImport());
+
+
                 ;
                 break;
 
