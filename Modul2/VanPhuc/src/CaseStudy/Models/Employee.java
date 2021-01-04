@@ -3,16 +3,26 @@ package CaseStudy.Models;
 public class Employee {
     String nameEmployee;
     String ageEmployee;
-    String adreesEmploye;
+    String addressEmployee;
 
-    public Employee(String nameEmployee, String ageEmployee, String adreesEmploye) {
+    public Employee(String nameEmployee, String ageEmployee, String addressEmployee) {
         this.nameEmployee = nameEmployee;
         this.ageEmployee = ageEmployee;
-        this.adreesEmploye = adreesEmploye;
+        this.addressEmployee = addressEmployee;
     }
 
-    public Employee() {
+    public Employee() {}
 
+    public String getNameEmployee() {
+        return nameEmployee;
+    }
+
+    public String getAgeEmployee() {
+        return ageEmployee;
+    }
+
+    public String getAddressEmployee() {
+        return addressEmployee;
     }
 
     public void setNameEmployee(String nameEmployee) {
@@ -23,16 +33,15 @@ public class Employee {
         this.ageEmployee = ageEmployee;
     }
 
-    public void setAdreesEmploye(String adreesEmploye) {
-        this.adreesEmploye = adreesEmploye;
+    public void setAddressEmployee(String addressEmployee) {
+        this.addressEmployee = addressEmployee;
     }
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "nameEmployee='" + nameEmployee + '\'' +
+        return "Employee:" +
+                " nameEmployee='" + nameEmployee + '\'' +
                 ", ageEmployee='" + ageEmployee + '\'' +
-                ", adreesEmploye='" + adreesEmploye + '\'' +
-                '}';
+                ", addressEmploye='" + addressEmployee + '\'' ;
     }
 }

@@ -1,66 +1,65 @@
 package CaseStudy.Models;
 
 public class Villa extends Services implements Comparable<Villa>{
-    String dienTichHoBoi;
-    String tieuChuanPhong;
-    String soTang;
-    String tienNghiKhac;
+    String areapool;
+    String standard;
+    String floor;
+    String facilities;
 
 
-    public Villa(String id, String tenDichVu,String dienTichSudung, String chiPhiThue, String soNguoiToiDa,
-                 String kieuThue, String tieuChuanPhong, String tienNghiKhac, String soTang, String dienTichHoBoi) {
-        super(id, tenDichVu, dienTichSudung, chiPhiThue, soNguoiToiDa, kieuThue);
-        this.tieuChuanPhong = tieuChuanPhong;
-        this.tienNghiKhac = tienNghiKhac;
-        this.soTang = soTang;
-        this.dienTichHoBoi = dienTichHoBoi;
+    public Villa(String id, String nameservices, String araeuse, String rentalcots, String maxpeople, String typerental, String areapool, String standard, String floor, String facilities) {
+        super(id, nameservices, araeuse, rentalcots, maxpeople, typerental);
+        this.areapool = areapool;
+        this.standard = standard;
+        this.floor = floor;
+        this.facilities = facilities;
     }
 
-    public String getDienTichHoBoi() {
-        return dienTichHoBoi;
+    public String getAreapool() {
+        return areapool;
     }
 
-    public void setDienTichHoBoi(String dienTichHoBoi) {
-        this.dienTichHoBoi = dienTichHoBoi;
+    public void setAreapool(String areapool) {
+        this.areapool = areapool;
     }
 
-    public String getTieuChuanPhong() {
-        return tieuChuanPhong;
+    public String getStandard() {
+        return standard;
     }
 
-    public void setTieuChuanPhong(String tieuChuanPhong) {
-        this.tieuChuanPhong = tieuChuanPhong;
+    public void setStandard(String standard) {
+        this.standard = standard;
     }
 
-    public String getSoTang() {
-        return soTang;
+    public String getFloor() {
+        return floor;
     }
 
-    public void setSoTang(String soTang) {
-        this.soTang = soTang;
+    public void setFloor(String floor) {
+        this.floor = floor;
     }
 
-    public String getTienNghiKhac() {
-        return tienNghiKhac;
+    public String getFacilities() {
+        return facilities;
     }
 
-    public void setTienNghiKhac(String tienNghiKhac) {
-        this.tienNghiKhac = tienNghiKhac;
+    public void setFacilities(String facilities) {
+        this.facilities = facilities;
     }
 
     @Override
     public String toString() {
         return "Villa: " +
-                "id='" + id + '\'' +
-                ",dienTichHoBoi='" + dienTichHoBoi + '\'' +
-                ", tieuChuanPhong='" + tieuChuanPhong + '\'' +
-                ", soTang='" + soTang + '\'' +
-                ", tienNghiKhac='" + tienNghiKhac + '\'' +
-                ", tenDichVu='" + tenDichVu + '\'' +
-                ", dienTichSudung='" + dienTichSudung + '\'' +
-                ", chiPhiThue='" + chiPhiThue + '\'' +
-                ", soNguoiToiDa='" + soNguoiToiDa + '\'' +
-                ", kieuThue='" + kieuThue + '\'' ;
+                "Id='" + id + '\'' +
+                ",diện tích hồ bơi='" + areapool + '\'' +
+                ", tiêu chuẩn phòng='" + standard + '\'' +
+                ", số tầng='" + floor + '\'' +
+                ", tiện nghi khác='" + facilities + '\'' +
+                ", tên dịch vụ='" + nameservices + '\'' +
+                ", diện tích sứ dụng='" + araeuse + '\'' +
+                ", chi phí thuê='" + rentalcots + '\'' +
+                ", số người tối đa='" + maxpeople + '\'' +
+                ", kiểu thuê='" + typerental + '\'' ;
     }
 
     @Override public void showInfor(){

@@ -41,23 +41,23 @@ public class MainController {
         int choice = input.nextInt();
         switch (choice) {
             case 1: {
-                Villa villa = new Villa(inputIdVilla(), inputtenDichVu(), inputDienTichSudung(), inputChiPhiThue(), inputSoNguoiToiDa(),
-                        inputKieuThue(), inputTieuChuanPhong(), inputTienNghiKhac(),
-                        inputSoTang(), inputDienTichHoBoi());
+                Villa villa = new Villa(inputIdVilla(), inputnameServices(), inputareaUse(), inputrentalCots(), inputmaxPeople(),
+                        inputtypeRental(), inputstandard(), inputfacilities(),
+                        inputfloor(), inputareapool());
                 villaList.add(villa);
                 ReadWritter.writeFileVilla("src/CaseStudy/Data/Villa.csv", villaList);
             }
             break;
             case 2: {
-                House house = new House(inputIdHouse(), inputtenDichVu(), inputDienTichSudung(), inputChiPhiThue(), inputSoNguoiToiDa(),
-                        inputKieuThue(), inputTieuChuanPhong(), inputSoTang(), inputTienNghiKhac());
+                House house = new House(inputIdHouse(), inputnameServices(), inputareaUse(), inputrentalCots(), inputmaxPeople(),
+                        inputtypeRental(), inputstandard(), inputfloor(), inputfacilities());
                 houseList.add(house);
                 ReadWritter.writeFileHouse("src/CaseStudy/Data/House.csv", houseList);
             }
             break;
             case 3: {
-                Room room = new Room(inputIdRoom(), inputtenDichVu(), inputDienTichSudung(), inputChiPhiThue(), inputSoNguoiToiDa(),
-                        inputKieuThue(), inputDichVuMienPhi());
+                Room room = new Room(inputIdRoom(), inputnameServices(), inputareaUse(), inputrentalCots(), inputmaxPeople(),
+                        inputtypeRental(), inputfreeservices());
                 roomList.add(room);
                 ReadWritter.writeFileRoom("src/CaseStudy/Data/Room.csv", roomList);
             }
@@ -106,7 +106,7 @@ public class MainController {
     }
 
     private static String inputIdVilla() {
-        System.out.println("Enter id :");
+        System.out.println("Enter id villa:");
         input.nextLine();
         String idVilla = input.nextLine();
         while (!Validate.checkIdVilla(idVilla)) {
@@ -118,7 +118,7 @@ public class MainController {
     }
 
     private static String inputIdHouse() {
-        System.out.println("Enter id:");
+        System.out.println("Enter id house:");
         String idHouse = input.nextLine();
         while (!Validate.checkIdHouse(idHouse)) {
             System.out.println("House invalid, please try again");
@@ -128,7 +128,7 @@ public class MainController {
     }
 
     private static String inputIdRoom() {
-        System.out.println("Enter id:");
+        System.out.println("Enter id room:");
         String idRoom = input.nextLine();
         while (!Validate.checkIdRoom(idRoom)) {
             System.out.println("Villa invalid, please try again");
@@ -137,78 +137,78 @@ public class MainController {
         return idRoom;
     }
 
-    private static String inputtenDichVu() {
-        System.out.println("Enter ten dich vu:");
+    private static String inputnameServices() {
+        System.out.println("Enter name services:");
         String tenDichVu = input.nextLine();
         while (!Validate.checkTenDichVu(tenDichVu)) {
-            System.out.println("Ten dich vu invalid, please try again");
+            System.out.println("Name services invalid, please try again");
             tenDichVu = input.nextLine();
         }
         return tenDichVu;
     }
 
-    private static String inputDienTichSudung() {
-        System.out.println("Enter dien tich su dung:");
+    private static String inputareaUse() {
+        System.out.println("Enter area use:");
         String dienTichSuDung = input.nextLine();
         while (!Validate.checkDienTichSuDung(dienTichSuDung)) {
-            System.out.println("Dien tich su dung invalid, please try again");
+            System.out.println("Area use invalid, please try again");
             dienTichSuDung = input.nextLine();
         }
         return dienTichSuDung;
     }
 
-    private static String inputChiPhiThue() {
-        System.out.println("Enter chi phi thue:");
+    private static String inputrentalCots() {
+        System.out.println("Enter Rental cots:");
         String chiPhiThue = input.nextLine();
         while (!Validate.checkChiPhiThue(chiPhiThue)) {
-            System.out.println("Ten dich vu invalid, please try again");
+            System.out.println("Rental cots invalid, please try again");
             chiPhiThue = input.nextLine();
         }
         return chiPhiThue;
     }
 
-    private static String inputSoNguoiToiDa() {
-        System.out.println("Enter so nguoi toi da:");
+    private static String inputmaxPeople() {
+        System.out.println("Enter max people :");
         String soNguoiToiDa = input.nextLine();
         while (!Validate.checkNguoiToiDa(soNguoiToiDa)) {
-            System.out.println("So nguoi invalid, please try again");
+            System.out.println("People invalid, please try again");
             soNguoiToiDa = input.nextLine();
         }
         return soNguoiToiDa;
     }
 
-    private static String inputKieuThue() {
-        System.out.println("Enter kieu thue:");
+    private static String inputtypeRental() {
+        System.out.println("Enter rental:");
         return input.nextLine();
     }
 
-    private static String inputTieuChuanPhong() {
-        System.out.println("Enter tieu chuan phong:");
+    private static String inputstandard() {
+        System.out.println("Enter standard :");
         return input.nextLine();
     }
 
-    private static String inputTienNghiKhac() {
-        System.out.println("Enter tien nghi khac:");
+    private static String inputfacilities() {
+        System.out.println("Enter facilities:");
         return input.nextLine();
     }
 
-    private static String inputSoTang() {
-        System.out.println("Enter tien so tang:");
+    private static String inputfloor() {
+        System.out.println("Enter floor:");
         String soTang = input.nextLine();
         while (!Validate.checkSoTang(soTang)) {
-            System.out.println("So tang invalid, please try again");
+            System.out.println("Floor invalid, please try again");
             soTang = input.nextLine();
         }
         return soTang;
     }
 
-    private static String inputDienTichHoBoi() {
-        System.out.println("Enter dien tich ho boi:");
+    private static String inputareapool() {
+        System.out.println("Enter areapool:");
         return input.nextLine();
     }
 
-    private static String inputDichVuMienPhi() {
-        System.out.println("Enter dich vu mien phi:");
+    private static String inputfreeservices() {
+        System.out.println("Enter freeservices:");
         return input.nextLine();
     }
 
@@ -324,7 +324,7 @@ public class MainController {
         System.out.println("Please booking");
         int sc = input.nextInt();
         switch (sc) {
-            case 1:
+            case 1 -> {
                 List<Villa> villaList = ReadWritter.readFileVilla("src/CaseStudy/Data/Villa.csv");
                 int i = 1;
                 for (Villa villa : villaList) {
@@ -338,8 +338,8 @@ public class MainController {
                 String line = bookingCustomer.toString() + bookingVilla.toString();
                 ReadWritter.writeFile("src/CaseStudy/Data/Booking.csv", line);
                 System.out.println("Add succes!!!");
-                break;
-            case 2:
+            }
+            case 2 -> {
                 List<House> houseList = ReadWritter.readFileHouse("src/CaseStudy/Data/House.csv");
                 int j = 1;
                 for (House house : houseList) {
@@ -353,8 +353,8 @@ public class MainController {
                 String line1 = bookingCustomer.toString() + bookingHouse.toString();
                 ReadWritter.writeFile("src/CaseStudy/Data/Booking.csv", line1);
                 System.out.println("Add succes!!!");
-                break;
-            case 3:
+            }
+            case 3 -> {
                 List<Room> roomList = ReadWritter.readFileRoom("src/CaseStudy/Data/Room.csv");
                 int k = 1;
                 for (Room room : roomList) {
@@ -367,7 +367,7 @@ public class MainController {
                 String line2 = bookingCustomer.toString() + bookingRoom.toString();
                 ReadWritter.writeFile("src/CaseStudy/Data/Room.csv", line2);
                 System.out.println("Add succes!!!");
-                break;
+            }
         }
 
     }
@@ -435,11 +435,10 @@ public class MainController {
     public static void showInformationEmployee() {
         List<Employee> employeeList = ReadWritter.readFileEmployee("src/CaseStudy/Data/Employee.csv");
         for (int i = 1; i <= employeeList.size(); i++) {
-            Employee employee = new Employee();
-            employee = employeeList.get(i - 1);
-            Map map = new HashMap();
+            Employee employee = employeeList.get(i - 1);
+            Map<Integer, Employee> map = new HashMap<>();
             map.put(i, employee);
-            Set set = map.keySet();
+            Set<Integer> set = map.keySet();
             for (Object key : set) {
                 System.out.println(key + ". " + map.get(key));
             }

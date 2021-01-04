@@ -2,20 +2,19 @@ package CaseStudy.Models;
 
 public class Room extends Services implements Comparable<Room>{
 
-    String dichVuMienPhi;
+    String freeservices;
 
-    public Room(String id, String tenDichVu, String dienTichSudung, String chiPhiThue,
-                String soNguoiToiDa, String kieuThue, String dichVuMienPhi) {
-        super(id, tenDichVu, dienTichSudung, chiPhiThue, soNguoiToiDa, kieuThue);
-        this.dichVuMienPhi = dichVuMienPhi;
+    public Room(String id, String nameservices, String araeuse, String rentalcots, String maxpeople, String typerental, String freeservices) {
+        super(id, nameservices, araeuse, rentalcots, maxpeople, typerental);
+        this.freeservices = freeservices;
     }
 
-    public String getDichVuMienPhi() {
-        return dichVuMienPhi;
+    public String getFreeservices() {
+        return freeservices;
     }
 
-    public void setDichVuMienPhi(String dichVuMienPhi) {
-        this.dichVuMienPhi = dichVuMienPhi;
+    public void setFreeservices(String freeservices) {
+        this.freeservices = freeservices;
     }
     @Override public void  showInfor(){
         System.out.println(toString());;
@@ -24,14 +23,15 @@ public class Room extends Services implements Comparable<Room>{
     @Override
     public String toString() {
         return "Room" +
-                "id='" + id + '\'' +
-                ", dienTichSudung='" + dienTichSudung + '\'' +
-                ", chiPhiThue='" + chiPhiThue + '\'' +
-                ", soNguoiToiDa='" + soNguoiToiDa + '\'' +
-                ", kieuThue='" + kieuThue + '\'' +
-                ", dichVuMienPhi='" + dichVuMienPhi;
+                "Id='" + id + '\'' +
+                ",tiện nghi khác='" + freeservices + '\'' +
+                ", tên dịch vụ='" + nameservices + '\'' +
+                ", diện tích sử dụng='" + araeuse + '\'' +
+                ", chi phí thuê='" + rentalcots + '\'' +
+                ", số người tối đa='" + maxpeople + '\'' +
+                ", kiểu thuê='" + typerental + '\''
+                ;
     }
-
 
     @Override
     public int compareTo(Room room) {

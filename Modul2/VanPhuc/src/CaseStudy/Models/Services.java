@@ -2,11 +2,11 @@ package CaseStudy.Models;
 
 public abstract class Services {
     String id;
-    String tenDichVu;
-    String dienTichSudung;
-    String chiPhiThue;
-    String soNguoiToiDa;
-    String kieuThue;
+    String nameservices;
+    String araeuse;
+    String rentalcots;
+    String maxpeople;
+    String typerental;
 
 
     public Services() {
@@ -16,13 +16,13 @@ public abstract class Services {
     public  abstract void showInfor();
 
 
-    public Services(String id, String tenDichVu, String dienTichSudung, String chiPhiThue, String soNguoiToiDa, String kieuThue) {
+    public Services(String id, String nameservices, String araeuse, String rentalcots, String maxpeople, String typerental) {
         this.id = id;
-        this.tenDichVu = tenDichVu;
-        this.dienTichSudung = dienTichSudung;
-        this.chiPhiThue = chiPhiThue;
-        this.soNguoiToiDa = soNguoiToiDa;
-        this.kieuThue = kieuThue;
+        this.nameservices = nameservices;
+        this.araeuse = araeuse;
+        this.rentalcots = rentalcots;
+        this.maxpeople = maxpeople;
+        this.typerental = typerental;
     }
 
     public String getId() {
@@ -33,51 +33,51 @@ public abstract class Services {
         this.id = id;
     }
 
-    public String getTenDichVu(){ return tenDichVu;}
+    public String getNameservices(){ return nameservices;}
 
-    public void setTenDichVu(){this.tenDichVu= tenDichVu;}
+    public void setTenDichVu(){this.nameservices = nameservices;}
 
-    public String getDienTichSudung() {
-        return dienTichSudung;
+    public String getAraeuse() {
+        return araeuse;
     }
 
-    public void setDienTichSudung(String dienTichSudung) {
-        this.dienTichSudung = dienTichSudung;
+    public void setAraeuse(String araeuse) {
+        this.araeuse = araeuse;
     }
 
-    public String getChiPhiThue() {
-        return chiPhiThue;
+    public String getRentalcots() {
+        return rentalcots;
     }
 
-    public void setChiPhiThue(String chiPhiThue) {
-        this.chiPhiThue = chiPhiThue;
+    public void setRentalcots(String rentalcots) {
+        this.rentalcots = rentalcots;
     }
 
-    public String getSoNguoiToiDa() {
-        return soNguoiToiDa;
+    public String getMaxpeople() {
+        return maxpeople;
     }
 
-    public void setSoNguoiToiDa(String soNguoiToiDa) {
-        this.soNguoiToiDa = soNguoiToiDa;
+    public void setMaxpeople(String maxpeople) {
+        this.maxpeople = maxpeople;
     }
 
-    public String getKieuThue() {
-        return kieuThue;
+    public String getTyperental() {
+        return typerental;
     }
 
-    public void setKieuThue(String kieuThue) {
-        this.kieuThue = kieuThue;
+    public void setTyperental(String typerental) {
+        this.typerental = typerental;
     }
 
     @Override
     public String toString() {
         return "Services{" +
                 "id='" + id + '\'' +
-                ", tenDichVu='"+ tenDichVu+'\'' +
-                ", dienTichSudung='" + dienTichSudung + '\'' +
-                ", chiPhiThue='" + chiPhiThue + '\'' +
-                ", soNguoiToiDa='" + soNguoiToiDa + '\'' +
-                ", kieuThue='" + kieuThue + '\'' +
+                ", tên dịch vụ='"+ nameservices +'\'' +
+                ", diện tích sử dụng='" + araeuse + '\'' +
+                ", chi phí thuê='" + rentalcots + '\'' +
+                ", số người tối đa='" + maxpeople + '\'' +
+                ", kiểu thuê='" + typerental + '\'' +
                 '}';
     }
 

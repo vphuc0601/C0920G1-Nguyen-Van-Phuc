@@ -5,7 +5,6 @@ import OnTap.Test.Student;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ReadWritter {
@@ -131,8 +130,8 @@ public class ReadWritter {
             FileWriter writer = new FileWriter(pathFile,true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             for (Villa villa:villaList) {
-                bufferedWriter.write(villa.getId()+","+villa.getTenDichVu()+","+villa.getDienTichSudung()+","+villa.getChiPhiThue()+","+villa.getSoNguoiToiDa()+","+
-                        villa.getKieuThue()+","+villa.getTieuChuanPhong()+","+villa.getTienNghiKhac()+","+villa.getSoTang()+","+villa.getDienTichHoBoi());
+                bufferedWriter.write(villa.getId()+","+villa.getNameservices()+","+villa.getAraeuse()+","+villa.getRentalcots()+","+villa.getMaxpeople()+","+
+                        villa.getTyperental()+","+villa.getStandard()+","+villa.getFacilities()+","+villa.getFloor()+","+villa.getAreapool());
                 bufferedWriter.newLine();
 
             }
@@ -146,8 +145,8 @@ public class ReadWritter {
             FileWriter writer = new FileWriter(pathFile,true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             for (House house:houses) {
-                bufferedWriter.write(house.getId()+","+house.getTenDichVu()+","+ house.getDienTichSudung()+","+house.getChiPhiThue()+","+
-                        house.getSoNguoiToiDa()+","+house.getKieuThue()+","+house.getTieuChuanPhong()+","+house.getSoTang()+","+house.getTienNghiKhac());
+                bufferedWriter.write(house.getId()+","+house.getNameservices()+","+ house.getAraeuse()+","+house.getRentalcots()+","+
+                        house.getMaxpeople()+","+house.getTyperental()+","+house.getStandard()+","+house.getFloor()+","+house.getFacilities());
                 bufferedWriter.newLine();
             }
             bufferedWriter.close();
@@ -160,8 +159,8 @@ public class ReadWritter {
             FileWriter writer = new FileWriter(pathFile,true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             for (Room room:rooms) {
-                bufferedWriter.write(room.getId()+","+room.getTenDichVu()+","+room.getDienTichSudung()+","+room.getChiPhiThue()+","+
-                        room.getSoNguoiToiDa()+","+room.getKieuThue()+","+room.getDichVuMienPhi());
+                bufferedWriter.write(room.getId()+","+room.getNameservices()+","+room.getAraeuse()+","+room.getRentalcots()+","+
+                        room.getMaxpeople()+","+room.getTyperental()+","+room.getFreeservices());
                 bufferedWriter.newLine();
             }
             bufferedWriter.close();
