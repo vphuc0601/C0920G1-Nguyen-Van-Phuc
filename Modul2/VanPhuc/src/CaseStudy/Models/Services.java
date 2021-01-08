@@ -9,13 +9,6 @@ public abstract class Services {
     String typerental;
 
 
-    public Services() {
-
-    }
-
-    public  abstract void showInfor();
-
-
     public Services(String id, String nameservices, String araeuse, String rentalcots, String maxpeople, String typerental) {
         this.id = id;
         this.nameservices = nameservices;
@@ -33,9 +26,13 @@ public abstract class Services {
         this.id = id;
     }
 
-    public String getNameservices(){ return nameservices;}
+    public String getNameservices() {
+        return nameservices;
+    }
 
-    public void setTenDichVu(){this.nameservices = nameservices;}
+    public void setTenDichVu() {
+        this.nameservices = nameservices;
+    }
 
     public String getAraeuse() {
         return araeuse;
@@ -69,11 +66,13 @@ public abstract class Services {
         this.typerental = typerental;
     }
 
+    public abstract void showInfor();
+
     @Override
     public String toString() {
         return "Services{" +
                 "id='" + id + '\'' +
-                ", tên dịch vụ='"+ nameservices +'\'' +
+                ", tên dịch vụ='" + nameservices + '\'' +
                 ", diện tích sử dụng='" + araeuse + '\'' +
                 ", chi phí thuê='" + rentalcots + '\'' +
                 ", số người tối đa='" + maxpeople + '\'' +

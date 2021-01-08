@@ -102,14 +102,13 @@ public class QuanLy {
                 System.out.println("2.No");
                 String choice = input.nextLine();
                 switch (choice) {
-                    case "1":
+                    case "1" -> {
                         QuanLy.soTietKiemCoThoiHans.remove(soTietKiemDaiHan);
                         ReaderWriter.removeFile("src/ThiModul2/shortTerm.csv");
                         ReaderWriter.writer("src/ThiModul2/shortTerm.csv", soTietKiemDaiHans.toString());
                         System.out.println(soTietKiemDaiHans);
-                        break;
-                    case "2":
-                        System.exit(0);
+                    }
+                    case "2" -> System.exit(0);
                 }
             }
         }
@@ -136,14 +135,13 @@ public class QuanLy {
                 System.out.println("2.No");
                 String choice = input.nextLine();
                 switch (choice) {
-                    case "1":
+                    case "1" -> {
                         QuanLy.soTietKiemCoThoiHans.remove(soTietKiemCoThoiHan);
                         ReaderWriter.removeFile("src/ThiModul2/longTerm.csv");
                         ReaderWriter.writer("src/ThiModul2/longTerm.csv", soTietKiemCoThoiHan.toString());
                         System.out.println(soTietKiemCoThoiHan);
-                        break;
-                    case "2":
-                        System.exit(0);
+                    }
+                    case "2" -> System.exit(0);
                 }
             }
         }

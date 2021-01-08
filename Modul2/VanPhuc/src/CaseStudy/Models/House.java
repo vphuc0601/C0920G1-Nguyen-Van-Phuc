@@ -1,6 +1,6 @@
 package CaseStudy.Models;
 
-public class House extends Services implements Comparable<House>{
+public class House extends Services  implements Comparable<House>{
     public House(String id,String nameservices, String araeuse, String rentalcots, String maxpeople, String typerental) {
         super(id, nameservices, araeuse, rentalcots, maxpeople, typerental);
     }

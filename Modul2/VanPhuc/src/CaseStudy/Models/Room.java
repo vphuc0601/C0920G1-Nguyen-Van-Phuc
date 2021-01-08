@@ -17,7 +17,7 @@ public class Room extends Services implements Comparable<Room>{
         this.freeservices = freeservices;
     }
     @Override public void  showInfor(){
-        System.out.println(toString());;
+        System.out.println(toString());
     }
 
     @Override

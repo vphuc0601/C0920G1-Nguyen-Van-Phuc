@@ -113,6 +113,4 @@ public class Customer implements Comparable<Customer> {
     public int compareTo(Customer customer) {
         return this.getName().compareTo(customer.getName());
     }
-
-
 }

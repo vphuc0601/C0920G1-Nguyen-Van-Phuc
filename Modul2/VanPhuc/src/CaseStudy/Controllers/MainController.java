@@ -13,23 +13,36 @@ public class MainController {
 
 
     public static void displayMenu() {
-        System.out.println("----MENU----");
-        System.out.println("1. Add New Services");
-        System.out.println("2. Show Services");
-        System.out.println("3. Add New Customers");
-        System.out.println("4. Show Information of Customers");
-        System.out.println("5. Add New Booking");
-        System.out.println("6. Show Information of Employee");
-        System.out.println("7. Exit");
-        String choice = input.nextLine();
-        switch (choice) {
-            case "1" : addNewServices();break;
-            case "2" : showServices();break;
-            case "3" : addNewCustomers();break;
-            case "4" : showInformationCustomers();break;
-            case "5" : addNewBooking();break;
-            case "6" : showInformationEmployee();break;
-        }
+        boolean check=false;
+        String choice;
+
+     do {
+
+         System.out.println("----MENU----");
+         System.out.println("1. Add New Services");
+         System.out.println("2. Show Services");
+         System.out.println("3. Add New Customers");
+         System.out.println("4. Show Information of Customers");
+         System.out.println("5. Add New Booking");
+         System.out.println("6. Show Information of Employee");
+         System.out.println("7. Exit");
+
+         choice = input.nextLine();
+         switch (choice) {
+             case "1" -> addNewServices();
+             case "2" -> showServices();
+             case "3" -> addNewCustomers();
+             case "4" -> showInformationCustomers();
+             case "5" -> addNewBooking();
+             case "6" -> showInformationEmployee();
+             case "7" -> {
+                 System.out.println("bye!!");
+                 check = true;
+             }
+         }
+     }while (!check);
+
+
     }
 
     public static void addNewServices() {
@@ -38,36 +51,29 @@ public class MainController {
         System.out.println("3. Add New Room");
         System.out.println("4. Back to menu");
         System.out.println("5. Exit");
-        int choice = input.nextInt();
+        String choice = input.nextLine();
         switch (choice) {
-            case 1: {
+            case "1" -> {
                 Villa villa = new Villa(inputIdVilla(), inputnameServices(), inputareaUse(), inputrentalCots(), inputmaxPeople(),
                         inputtypeRental(), inputstandard(), inputfacilities(),
                         inputfloor(), inputareapool());
                 villaList.add(villa);
                 ReadWritter.writeFileVilla("src/CaseStudy/Data/Villa.csv", villaList);
             }
-            break;
-            case 2: {
+            case "2" -> {
                 House house = new House(inputIdHouse(), inputnameServices(), inputareaUse(), inputrentalCots(), inputmaxPeople(),
                         inputtypeRental(), inputstandard(), inputfloor(), inputfacilities());
                 houseList.add(house);
                 ReadWritter.writeFileHouse("src/CaseStudy/Data/House.csv", houseList);
             }
-            break;
-            case 3: {
+            case "3" -> {
                 Room room = new Room(inputIdRoom(), inputnameServices(), inputareaUse(), inputrentalCots(), inputmaxPeople(),
                         inputtypeRental(), inputfreeservices());
                 roomList.add(room);
                 ReadWritter.writeFileRoom("src/CaseStudy/Data/Room.csv", roomList);
             }
-            break;
-            case 4:
-                displayMenu();
-                break;
-            case 5:
-                System.exit(0);
-                break;
+            case "4" -> displayMenu();
+            case "5" -> System.exit(0);
         }
     }
 
@@ -80,27 +86,17 @@ public class MainController {
         System.out.println("6.Show All Name Name Not Duplicate");
         System.out.println("7. Back to menu");
         System.out.println("8. Exit");
-        int choice = input.nextInt();
+        String choice = input.nextLine();
+        //            case 8:
+        //                System.exit(0);
         switch (choice) {
-            case 1:
-                showAllVilla();
-                break;
-            case 2:
-                showAllHouse();
-                break;
-            case 3:
-                showAllRoom();
-                break;
-            case 4:
-                showAllNameVillaNotDuplicate();
-            case 5:
-                showAllNameHouseNotDuplicate();
-            case 6:
-                showAllNameRoomNotDuplicate();
-            case 7:
-                displayMenu();
-            case 8:
-                System.exit(0);
+            case "1" -> showAllVilla();
+            case "2" -> showAllHouse();
+            case "3" -> showAllRoom();
+            case "4" -> showAllNameVillaNotDuplicate();
+            case "5" -> showAllNameHouseNotDuplicate();
+            case "6" -> showAllNameRoomNotDuplicate();
+            case "7" -> displayMenu();
         }
 
     }
@@ -322,9 +318,9 @@ public class MainController {
         System.out.println("2. Booking House");
         System.out.println("3. Booking Room");
         System.out.println("Please booking");
-        int sc = input.nextInt();
+        String sc = input.nextLine();
         switch (sc) {
-            case 1 -> {
+            case "1" -> {
                 List<Villa> villaList = ReadWritter.readFileVilla("src/CaseStudy/Data/Villa.csv");
                 int i = 1;
                 for (Villa villa : villaList) {
@@ -339,7 +335,7 @@ public class MainController {
                 ReadWritter.writeFile("src/CaseStudy/Data/Booking.csv", line);
                 System.out.println("Add succes!!!");
             }
-            case 2 -> {
+            case "2" -> {
                 List<House> houseList = ReadWritter.readFileHouse("src/CaseStudy/Data/House.csv");
                 int j = 1;
                 for (House house : houseList) {
@@ -354,7 +350,7 @@ public class MainController {
                 ReadWritter.writeFile("src/CaseStudy/Data/Booking.csv", line1);
                 System.out.println("Add succes!!!");
             }
-            case 3 -> {
+            case "3" -> {
                 List<Room> roomList = ReadWritter.readFileRoom("src/CaseStudy/Data/Room.csv");
                 int k = 1;
                 for (Room room : roomList) {
@@ -408,8 +404,10 @@ public class MainController {
         List<Villa> villaList = ReadWritter.readFileVilla("src/CaseStudy/Data/Villa.csv");
         TreeSet<Villa> villaTreeSet = new TreeSet<>(villaList);
         villaTreeSet.addAll(villaList);
+        int temp=1;
         for (Villa villa:villaTreeSet) {
-            System.out.println(villa);
+            System.out.println(temp+"."+villa);
+            temp++;
         }
     }
 
@@ -417,8 +415,10 @@ public class MainController {
         List<House> houseList=ReadWritter.readFileHouse("src/CaseStudy/Data/House.csv");
         TreeSet<House> houseTreeSet = new TreeSet<>(houseList);
         houseTreeSet.addAll(houseList);
+        int temp=1;
         for (House house:houseTreeSet) {
-            System.out.println(house);
+            System.out.println(temp+"."+house);
+            temp++;
         }
     }
 
@@ -426,8 +426,9 @@ public class MainController {
         List<Room> roomList=ReadWritter.readFileRoom("src/CaseStudy/Data/Room.csv");
         TreeSet<Room> roomTreeSet = new TreeSet<>(roomList);
         roomTreeSet.addAll(roomList);
+        int temp=1;
         for (Room room: roomTreeSet) {
-            System.out.println(room);
+            System.out.println(temp+"."+room);
         }
 
     }
