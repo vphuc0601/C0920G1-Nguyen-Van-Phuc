@@ -7,10 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
     <title>Discount</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <br>
 <h2>Product Discount Calculator</h2>

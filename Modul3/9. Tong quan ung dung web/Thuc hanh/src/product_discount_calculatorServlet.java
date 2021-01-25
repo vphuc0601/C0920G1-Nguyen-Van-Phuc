@@ -23,7 +23,6 @@ public class product_discount_calculatorServlet extends HttpServlet {
         writer.println("<h1>Discount Price: "+ discountPrice+ "</h1>");
         writer.println("</html>");
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
 }

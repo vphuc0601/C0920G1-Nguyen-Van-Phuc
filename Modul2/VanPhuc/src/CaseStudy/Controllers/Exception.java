@@ -1,4 +1,4 @@
-package CaseStudy.Controllers;
+    Gpackage CaseStudy.Controllers;
 
 import CaseStudy.Models.Customer;
 

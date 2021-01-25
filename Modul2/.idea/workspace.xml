@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5f6960e7-f3be-42b4-b86a-1070d4a41d2a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/VanPhuc/Test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/VanPhuc/src/CaseStudy/Controllers/Exception.java" beforeDir="false" afterPath="$PROJECT_DIR$/VanPhuc/src/CaseStudy/Controllers/Exception.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Modul3/9. Tong quan ung dung web/Thuc hanh/out/artifacts/display_timesystem_war_exploded/WEB-INF/classes/product_discount_calculatorServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Modul3/9. Tong quan ung dung web/Thuc hanh/out/artifacts/display_timesystem_war_exploded/WEB-INF/classes/product_discount_calculatorServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Modul3/9. Tong quan ung dung web/Thuc hanh/out/artifacts/display_timesystem_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Modul3/9. Tong quan ung dung web/Thuc hanh/out/artifacts/display_timesystem_war_exploded/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Modul3/9. Tong quan ung dung web/Thuc hanh/out/production/display-timesystem/product_discount_calculatorServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Modul3/9. Tong quan ung dung web/Thuc hanh/out/production/display-timesystem/product_discount_calculatorServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Modul3/9. Tong quan ung dung web/Thuc hanh/src/product_discount_calculatorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Modul3/9. Tong quan ung dung web/Thuc hanh/src/product_discount_calculatorServlet.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1nVQ53ljb6LVYmWD1L8KND85CIb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Modul3" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5f6960e7-f3be-42b4-b86a-1070d4a41d2a" name="Default Changelist" comment="" />
+      <created>1611472591537</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611472591537</updated>
+      <workItem from="1611472592817" duration="125000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="492" y="234" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1611472627965">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="492" y="234" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1611472627965" />
+    <state x="421" y="100" key="FileChooserDialogImpl" timestamp="1611472715982">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="100" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1611472715982" />
+  </component>
+</project>
