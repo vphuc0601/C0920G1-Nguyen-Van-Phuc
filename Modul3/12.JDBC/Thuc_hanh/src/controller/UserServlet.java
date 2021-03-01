@@ -1,8 +1,8 @@
 package controller;
 
-import Phuc.IUserPhuc;
+import Service.IUserService;
 import model.User;
-import Phuc.UserPhuc;
+import Service.UserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,13 +16,16 @@ import java.util.List;
 
 @WebServlet(name = "UserServlet", urlPatterns = {"","/users"})
 public class UserServlet extends HttpServlet {
+
         private static final long serialVersionUID = 1L;
-        private IUserPhuc userPhuc;
+        private IUserService userPhuc;
 
         public void init() {
-            userPhuc = new UserPhuc();
+            userPhuc = new UserService();
         }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html; charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -35,6 +38,11 @@ public class UserServlet extends HttpServlet {
                 case "edit":
                     updateUser(request, response);
                     break;
+                case "delete":
+                    deleteUser(request,response);
+                    break;
+                case "search":
+                    searchUserForm(request,response);
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
@@ -44,6 +52,8 @@ public class UserServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html; charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
         if (action == null) {
             action = "";

@@ -1,26 +1,25 @@
-create database acount_bank; 
-use acount_bank;
-create table Customers (
-customer_number int primary key,
-fullname char(23),
-address  char(23),
-email  char(23),
-phone int
+create database bai_tap_2;
+use bai_tap_2;
+create table customers
+(customer_number int not null auto_increment primary key,
+full_name varchar(30),
+address varchar(30),
+email varchar (30),
+phone int (10)
 );
-create table Accounts (
-account_number int primary key,
-account_type char(55),
-date date,
-balance int,
-customer_number int, 
-FOREIGN KEY (customer_number) REFERENCES Customers(customer_number)
+create table accounts
+(   account_number int auto_increment primary key,
+	account_types varchar(30),
+    open_date date,
+    blance double,
+    customer_number int,
+    foreign key (customer_number) references customers(customer_number)
 );
-create table Transactions (
-tran_number int primary key,
+create table transactions
+(tran_number int primary key,
+tran_date date,
+amount double,
+descriptions varchar(50),
 account_number int,
-date date,
-amounts int,
-descriptions char(255),
-FOREIGN KEY (account_number) REFERENCES Accounts(account_number)
+foreign key (account_number) references accounts(account_number)
 );
-select*from Accounts;

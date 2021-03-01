@@ -19,16 +19,31 @@
         <a href="users?action=users">List All Users</a>
     </h2>
 </center>
+
+<<!doctype html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="bootstrap413/css/bootstrap.min.css">
+    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css">
+    <!-- Bootstrap CSS -->
+<%--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"--%>
+<%--          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">--%>
+</head>
+<body>
 <div align="center">
     <form method="post">
-        <table border="1" cellpadding="5">
+        <table border="1" cellpadding="5" class="table table-danger">
             <caption>
                 <h2>
                     Edit User
                 </h2>
             </caption>
             <c:if test="${user != null}">
-                <input type="hidden" name="id" value="<c:out value='${user.id}' />"/>
+                <input class="input-group mb-3" type="hidden" name="id" value="<c:out value='${user.id}' />"/>
             </c:if>
             <tr>
                 <th>User Name:</th>
@@ -49,18 +64,27 @@
             <tr>
                 <th>Country:</th>
                 <td>
-                    <input type="text" name="country" size="15"
+                    <input class="input-group-prepend" type="text" name="country" size="15"
                            value="<c:out value='${user.country}' />"
                     />
                 </td>
             </tr>
             <tr>
-                <td colspan="2" align="center">
+                <td  colspan="2" align="center">
                     <input type="submit" value="Save"/>
                 </td>
             </tr>
         </table>
     </form>
 </div>
+
+
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap4.min.js"></script>
+<script src="bootstrap413/js/bootstrap.js"></script>
+<script src="bootstrap413/js/bootstrap.bundle.js"></script>
+</body>
+</html>
 </body>
 </html>

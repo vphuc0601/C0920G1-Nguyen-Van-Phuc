@@ -50,6 +50,7 @@
                 <td>
                     <a href="/users?action=edit&id=${user.id}">Edit</a>
                     <a href="/users?action=delete&id=${user.id}">Delete</a>
+
                 </td>
             </tr>
         </c:forEach>
