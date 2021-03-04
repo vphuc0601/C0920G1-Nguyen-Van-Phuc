@@ -139,7 +139,7 @@ and so_luong_hop_dong <= 3 ;
 
 -- Task 16
 delete from nhanvien where id_nhan_vien not in
-(select id_nhan_vien where year(ngay_lam_hop_dong) between 2017 and 2019);
+(select id_nhan_vien where (year(hopdong.ngay_lam_hop_dong) between 2017 and 2019));
 
 -- Task 17
 update khachhang 
@@ -150,12 +150,25 @@ where (id_loai_khach=2 and (tongtien>10000 and year(hopdong.ngay_ket_thuc)=2019)
 delete from khachhang
 where id_khach_hang = (
 select id_khach_hang where year(hopdong.ngay_ket_thuc<2016));
+DELETE FROM khach_hang
+WHERE EXISTS (SELECT * FROM hop_dong
+WHERE year(hopdong.ngay_ket_thuc) < 2016
+AND hopdong.id_khach_hang = khachhang.id_khach_hang);
 
 -- Task 19
- update dichvudikem 
+update dichvudikem 
  set gia=dichvudikem.gia*2
  where (count(ten_dich_vu_di_kem)>10 and year(hopdong.ngay_ket_thuc)=2019);
+UPDATE dichvudikem
+SET dichvudikem.gia = dichvudikem.gia * 2
+WHERE EXISTS (SELECT hopdongchitiet.id_dich_vu_di_kem, count(hopdongchitiet.id_dich_vu_di_kem) as so_lan 
+FROM hopdongchitiet 
+JOIN hopdong on hopdong.id_hop_dong = hopdongchitiet.id_hop_dong
+WHERE year(hopdong.ngay_lam_hop_dong) = 2019
+AND dichvudikem.id_dich_vu_di_kem = hopdongchitiet.id_dich_vu_di_kem
+GROUP BY hopdongchitiet.id_dich_vu_di_kem
+HAVING so_lan > 10);
  
  -- Task 20
  select id_nhan_vien, ho_ten_nhan_vien, ngay_sinh, email,SDT_nv, dia_chi from nhanvien;
- select id_khach_hang, hon_ten_khach_hang, ngay_sinh, email, SDT_kh, dia_chi from khachhang;
+ select id_khach_hang, ho_ten_khach_hang, ngay_sinh, email, SDT_kh, dia_chi from khachhang;
