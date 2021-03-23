@@ -9,6 +9,8 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="WEB-INF" />
+          <element id="library" level="project" name="jstl-1.2" />
+          <element id="library" level="project" name="javax.servlet.jsp.jstl" />
         </element>
       </element>
     </root>

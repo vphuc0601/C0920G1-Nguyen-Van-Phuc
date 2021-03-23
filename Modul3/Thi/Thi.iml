@@ -19,8 +19,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 9.0.41" level="application_server_libraries" />
-    <orderEntry type="library" exported="" name="taglibs-standard-impl-1.2.5" level="project" />
-    <orderEntry type="library" exported="" name="mysql-connector-java-8.0.11" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.21" level="application_server_libraries" />
   </component>
 </module>

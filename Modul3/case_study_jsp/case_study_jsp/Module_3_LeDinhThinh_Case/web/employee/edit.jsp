@@ -1,125 +1,5 @@
-<%--&lt;%&ndash;--%>
-<%--  Created by IntelliJ IDEA.--%>
-<%--  User: ledinhthinh--%>
-<%--  Date: 12/17/2020--%>
-<%--  Time: 11:47--%>
-<%--  To change this template use File | Settings | File Templates.--%>
-<%--&ndash;%&gt;--%>
-<%--<%@ page language="java" contentType="text/html; charset=UTF-8"--%>
-<%--         pageEncoding="UTF-8" %>--%>
-<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>Customer Management Application</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<div style="text-align: center;">--%>
-<%--    <h1>Customer Management</h1>--%>
-<%--    <h2>--%>
-<%--        <a href="customer?action=customers">List All Customer</a>--%>
-<%--    </h2>--%>
-<%--</div>--%>
-<%--<div align="center">--%>
-<%--    <form method="post">--%>
-<%--        <table class="table">--%>
-<%--            <caption>--%>
-<%--                <h2>--%>
-<%--                    Edit Customer--%>
-<%--                </h2>--%>
-<%--            </caption>--%>
-<%--            <c:if test="${ customer != null}">--%>
-<%--                <input type="hidden" name="id" value="<c:out value='${customer.id}' />"/>--%>
-<%--            </c:if>--%>
-<%--            <tr>--%>
-<%--                <th>Customer Name:</th>--%>
-<%--                <td>--%>
-<%--                    <input type="text" name="name" size="45"--%>
-<%--                           value="<c:out value='${customer.name}' />"--%>
-<%--                    />--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>Customer Birthday:</th>--%>
-<%--                <td>--%>
-<%--                    <input type="text" name="birthday" size="45"--%>
-<%--                           value="<c:out value='${customer.birthday}' />"--%>
-<%--                    />--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>Customer Gender:</th>--%>
-<%--                <td>--%>
-<%--                    <select id="gender" name="gender">--%>
-<%--                        <option><c:out value='${customer.gender}' /></option>--%>
-<%--                        <option value="Nam">Nam</option>--%>
-<%--                        <option value="Nu">Nu</option>--%>
-<%--                    </select>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>Customer Id card:</th>--%>
-<%--                <td>--%>
-<%--                    <input type="text" name="id_card" size="45"--%>
-<%--                           value="<c:out value='${customer.id_card}' />"--%>
-<%--                    />--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>Customer Phone:</th>--%>
-<%--                <td>--%>
-<%--                    <input type="text" name="phone" size="45"--%>
-<%--                           value="<c:out value='${customer.phone}' />"--%>
-<%--                    />--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>Customer Email:</th>--%>
-<%--                <td>--%>
-<%--                    <input type="text" name="email" size="45"--%>
-<%--                           value="<c:out value='${customer.email}' />"--%>
-<%--                    />--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>Customer Address:</th>--%>
-<%--                <td>--%>
-<%--                    <input type="text" name="address" size="45"--%>
-<%--                           value="<c:out value='${customer.address}' />"--%>
-<%--                    />--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>Customer type:</th>--%>
-<%--                <td>--%>
-<%--                    <select id="customer_type_id" name="customer_type_id">--%>
-<%--                        <option value="${customer.customerType.idCustomerType}"><c:out value='${customer.customerType.nameCustomerType}'/></option>--%>
-<%--                        <option value="1">Diamond</option>--%>
-<%--                        <option value="2">Platinium</option>--%>
-<%--                        <option value="3">Gold</option>--%>
-<%--                        <option value="4">Silver</option>--%>
-<%--                        <option value="5">Member</option>--%>
-<%--                    </select>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <td colspan="2" align="center">--%>
-<%--                    <input type="submit" value="Save"/>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--        </table>--%>
-<%--    </form>--%>
-<%--</div>--%>
-<%--</body>--%>
-<%--</html>--%>
 
 
-<%--
-  Created by IntelliJ IDEA.
-  User: ledinhthinh
-  Date: 12/17/2020
-  Time: 19:55
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -142,10 +22,7 @@
     <%--Header-link--%>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <%--    <a class="navbar-brand" href="#">Navbar</a>--%>
-        <%--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--%>
-        <%--        <span class="navbar-toggler-icon"></span>--%>
-        <%--    </button>--%>
+
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -164,23 +41,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Contract <span class="sr-only">(current)</span></a>
                 </li>
-                <%--            <li class="nav-item">--%>
-                <%--                <a class="nav-link" href="#">Link</a>--%>
-                <%--            </li>--%>
-                <%--            <li class="nav-item dropdown">--%>
-                <%--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-                <%--                    Dropdown--%>
-                <%--                </a>--%>
-                <%--                <div class="dropdown-menu" aria-labelledby="navbarDropdown">--%>
-                <%--                    <a class="dropdown-item" href="#">Action</a>--%>
-                <%--                    <a class="dropdown-item" href="#">Another action</a>--%>
-                <%--                    <div class="dropdown-divider"></div>--%>
-                <%--                    <a class="dropdown-item" href="#">Something else here</a>--%>
-                <%--                </div>--%>
-                <%--            </li>--%>
-                <%--            <li class="nav-item">--%>
-                <%--                <a class="nav-link disabled" href="#">Disabled</a>--%>
-                <%--            </li>--%>
+
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

@@ -25,14 +25,13 @@
     </tr>
     <c:forEach var="customers" items="${customerslist}">
         <tr>
-       <td> <c:out value="${customers.name}"></c:out></td>
-       <td> <c:out value="${customers.dateofbirth}"></c:out></td>
-       <td> <c:out value="${customers.getAddress()}"></c:out></td>
-       <td>
-           <img src="${customers.image}" width="80" height="100" />
-       </td>
-
-        </tr>
+        <td> <c:out value="${customers.name}"></c:out></td>
+        <td> <c:out value="${customers.dateofbirth}"></c:out></td>
+        <td> <c:out value="${customers.getAddress()}"></c:out></td>
+        <td>
+            <img src="${customers.image}" width="80" height="100" />
+        </td>
+    </tr>
     </c:forEach>
 </table>
 </body>

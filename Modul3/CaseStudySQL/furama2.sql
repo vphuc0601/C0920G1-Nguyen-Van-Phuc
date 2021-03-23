@@ -147,9 +147,6 @@ set id_loai_khach=1
 where (id_loai_khach=2 and (tongtien>10000 and year(hopdong.ngay_ket_thuc)=2019));
 
 -- Task 18
-delete from khachhang
-where id_khach_hang = (
-select id_khach_hang where year(hopdong.ngay_ket_thuc<2016));
 DELETE FROM khach_hang
 WHERE EXISTS (SELECT * FROM hop_dong
 WHERE year(hopdong.ngay_ket_thuc) < 2016
