@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.TreeMap;
 
 @Controller
 public class Translate {
@@ -15,16 +14,16 @@ public class Translate {
     public String home(){
         return "home";
     }
-    @PostMapping String translate(@RequestParam String word, Model model){
+    @PostMapping("/translate")
+    String translate(@RequestParam String word, Model model){
 //        model.addAttribute("word", word);
-        Map<String ,String > hashMap=new HashMap<String, String>();
-        hashMap.put("1","one");
-        hashMap.put("2", "two");
-        hashMap.put("3", "three");
-        hashMap.put("4", "four");
-        for (String word1:hashMap.keySet())
-              {
-            
+        TreeMap<String ,String > treeMap=new TreeMap<String, String>();
+        treeMap.put("1","one");
+        treeMap.put("2", "two");
+        treeMap.put("3", "three");
+        treeMap.put("4", "four");
+        if(treeMap.containsKey(word)){
+            model.addAttribute("value", treeMap.get(word));
         }
         return "translate";
     }
