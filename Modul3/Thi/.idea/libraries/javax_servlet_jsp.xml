@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="javax.servlet.jsp">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/javax.servlet.jsp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/javax.servlet.jsp.jstl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-8.0.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/servlet-api-2.5-6.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
