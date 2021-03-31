@@ -5,7 +5,7 @@ import service.CaculatorService;
 @Service
 public class CaculatorServiceImpl implements CaculatorService {
     @Override
-    public double caculator(double number1, double number2, String operator) {
+    public double caculator(double number1, double number2, String operator) throws Exception {
         double result = 0;
         switch (operator) {
             case "Addition":
@@ -21,7 +21,7 @@ public class CaculatorServiceImpl implements CaculatorService {
                 if (number2 != 0) {
                     result = number1 / number2;
                 } else {
-                    throw new ArithmeticException("Mẫu số không được bằng 0");
+                    throw new Exception("Mau so phai khac 0");
                 }
         }
         return result;

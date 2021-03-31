@@ -23,8 +23,12 @@ public class CaculatorController {
             model.addAttribute("number1", number1);
             model.addAttribute("number2", number2);
             model.addAttribute("operator", operator);
+        try {
             model.addAttribute("result",caculatorService.caculator(number1,number2,operator));
-            return "/caculator";
+        } catch (Exception e) {
+            model.addAttribute("result", e.getMessage());
+        }
+        return "/caculator";
         }
 }
 
