@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="18.CSDL_ORM:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/18_CSDL_ORM_jar</output-path>
+    <root id="root" />
+  </artifact>
+</component>

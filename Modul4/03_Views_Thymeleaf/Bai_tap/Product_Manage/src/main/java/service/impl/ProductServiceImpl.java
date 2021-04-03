@@ -1,6 +1,7 @@
 package service.impl;
 
 import model.Product;
+import org.springframework.stereotype.Service;
 import service.ProductService;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class ProductServiceImpl implements ProductService {
     private static Map<Integer, Product> products;
     static {

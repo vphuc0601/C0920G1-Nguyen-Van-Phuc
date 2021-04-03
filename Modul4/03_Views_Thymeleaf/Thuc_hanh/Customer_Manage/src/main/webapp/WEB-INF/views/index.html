@@ -22,11 +22,11 @@
     </tr>
     </thead>
     <tbody>
+
     <tr th:each="row,rowStat : ${customers}">
         <td th:text="${row.getName()}"></td>
         <td th:text="${row.getEmail()}"></td>
         <td>
-            <!--            <img th:src="${row.getAddress()}">-->
             <img th:src="@{${row.getAddress()}}" style="width: 70px; height: 100px">
         </td>
         <td><a th:href="@{/customer/{id}/edit(id=${row.getId()})}">edit</a></td>
