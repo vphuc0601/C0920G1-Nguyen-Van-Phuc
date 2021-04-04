@@ -32,7 +32,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void update(int id, Customer customer) {
-        customerRepository.update(id, customer);
+    public void update(Customer customer) {
+        customerRepository.update(customer);
     }
 }

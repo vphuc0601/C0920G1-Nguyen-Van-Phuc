@@ -9,5 +9,5 @@ public interface CustomerRepository {
     Customer findById(int id);
     void save(Customer customer);
     void  delete(int id);
-    void update(int id, Customer customer);
+    void update(Customer customer);
 }

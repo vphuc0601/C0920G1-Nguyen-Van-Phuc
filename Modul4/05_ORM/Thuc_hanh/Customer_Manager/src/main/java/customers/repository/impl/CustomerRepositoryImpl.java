@@ -43,8 +43,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     }
 
     @Override
-    public void update(int id, Customer customer) {
-        customer=BaseRepository.entityManager.find(Customer.class,id);
+    public void update(Customer customer) {
         EntityTransaction entityTransaction = BaseRepository.entityManager.getTransaction();
         entityTransaction.begin();
         BaseRepository.entityManager.merge(customer);
