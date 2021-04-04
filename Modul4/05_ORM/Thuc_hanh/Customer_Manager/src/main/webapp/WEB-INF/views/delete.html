@@ -9,10 +9,10 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<h3>Remove Product</h3>
+<h3>Remove Customer</h3>
 <p>
     <a th:href="@{/}">
-        Back to product list
+        Back to customer list
     </a>
 </p>
 <div id="form">
@@ -25,13 +25,13 @@
         </div>
         <div>
             <label>Age Customer</label>
-            <input  th:field="*{age}"/>
+            <input type="text" th:field="*{age}"/>
         </div>
         <div>
             <label>Address Customer</label>
             <input type="text" th:field="*{address}"/>
         </div>
-        <button type="button" th:onclick="|setCustomerId('${customer.id}')|" data-toggle="modal" data-target="#deleteModal">REMOVE</button>
+        <button class="hover btn-danger "  th:onclick="|setCustomerId('${customer.id}')|" data-toggle="modal" data-target="#deleteModal">REMOVE</button>
     </form>
 </div>
 <div class="modal" tabindex="-1" id="deleteModal">

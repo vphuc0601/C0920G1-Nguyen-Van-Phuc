@@ -24,7 +24,9 @@
         <th>Name</th>
         <th>Age</th>
         <th>Address</th>
-        <th>Action (Path)</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
 
     <tr th:each="customer : ${listCustomer}">
@@ -32,9 +34,9 @@
         <td th:text="${customer.name}"></td>
         <td th:text="${customer.age}"></td>
         <td th:text="${customer.address}"></td>
-        <td><a th:href="@{/customer/{id}/view(id=${customer.getId()})}">view</a></td>
-        <td><a th:href="@{/customer/{id}/edit(id=${customer.getId()})}">edit</a></td>
-        <td><a th:href="@{/customer/{id}/delete(id=${customer.getId()})}">delete</a></td>
+        <td><a th:href="@{/customer/{id}/view(id=${customer.getId()})}">View</a></td>
+        <td><a th:href="@{/customer/{id}/edit(id=${customer.getId()})}">Edit</a></td>
+        <td><a th:href="@{/customer/{id}/delete(id=${customer.getId()})}">Delete</a></td>
     </tr>
 
 </table>

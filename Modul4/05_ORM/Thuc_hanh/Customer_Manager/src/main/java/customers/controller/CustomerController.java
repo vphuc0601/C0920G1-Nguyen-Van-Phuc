@@ -38,6 +38,7 @@ public class CustomerController {
     @PostMapping("/customer/update")
     public String update(Customer customer) {
         customerService.update(customer.getId(), customer);
+        System.out.println(customer.getName());
         return "redirect:/";
     }
     @GetMapping("/customer/{id}/delete")
