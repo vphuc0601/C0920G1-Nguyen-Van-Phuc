@@ -9,34 +9,38 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
-    <h1>CREATE BLOG</h1>
-    <form th:action="@{/save}" method="post" th:object="${blog}">
-        <table class="table table-striped">
-            <tr>
-                <td>Title</td>
-                <td><input type="text" th:field="*{title}"></td>
-            </tr>
-            <tr>
-                <td>Content</td>
-                <td><input type="text" th:field="*{content}"></td>
-            </tr>
-            <tr>
-                <td>Date</td>
-                <td><input  type="datetime-local" th:field="*{date}"></td>
-            </tr>
-            <tr>
-                <td><input class="btn btn-primary" type="submit" value="save"><a th:href="@{/}" class="btn btn-primary">
-                    Cancel
-                </a></td>
-            </tr>
-        </table>
-    </form>
-</div>
+<h1 style="text-align: center">CUSTOMER MANAGER</h1>
+
+<p>
+    <a th:href="@{/create}">
+        Create new customer
+    </a>
+</p>
+<table class="table-bordered table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    <tr th:each="customer : ${listCustomer}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.name}"></td>
+        <td th:text="${customer.age}"></td>
+        <td th:text="${customer.address}"></td>
+        <td><a th:href="@{/customer/{id}/view(id=${customer.getId()})}">View</a></td>
+        <td><a th:href="@{/customer/{id}/edit(id=${customer.getId()})}">Edit</a></td>
+        <td><a th:href="@{/customer/{id}/delete(id=${customer.getId()})}">Delete</a></td>
+    </tr>
+
+</table>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

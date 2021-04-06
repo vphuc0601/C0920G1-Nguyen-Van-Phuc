@@ -1,9 +1,13 @@
 package com.blog.blog_manager.model;
 
+import org.springframework.cglib.core.Local;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
+import java.util.Locale;
 
 @Entity
 public class Blog {
@@ -12,7 +16,7 @@ public class Blog {
     private int id;
     private String title;
     private String content;
-    private String date;
+    private LocalDate date;
 
     public Blog() {
     }
@@ -41,8 +45,9 @@ public class Blog {
         this.content = content;
     }
 
-    public String getDate(){return date;}
-    public void setDate(String date){
-        this.date=date;
+    public LocalDate getDate(){
+        return date;}
+    public void setDate(LocalDate date){
+        this.date=LocalDate.now();
     }
 }
