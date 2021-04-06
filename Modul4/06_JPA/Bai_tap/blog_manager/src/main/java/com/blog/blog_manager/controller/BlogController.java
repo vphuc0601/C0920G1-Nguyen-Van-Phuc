@@ -8,8 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class BlogController {
@@ -31,7 +29,7 @@ public class BlogController {
         return "redirect:/";
     }
     @GetMapping("/{id}/edit")
-    public String edit(@PathVariable int id, Model model) {
+    public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("blog", blogService.findById(id));
         return "/edit";
     }
@@ -41,7 +39,7 @@ public class BlogController {
         return "redirect:/";
     }
     @GetMapping("/{id}/delete")
-    public String delete(@PathVariable int id, Model model) {
+    public String delete(@PathVariable Integer id, Model model) {
         blogService.delete(id);
         return "redirect:/";
     }

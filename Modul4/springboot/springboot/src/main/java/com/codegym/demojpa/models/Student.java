@@ -1,11 +1,10 @@
 package com.codegym.demojpa.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,6 +13,9 @@ public class Student {
     private String name;
 
     private int age;
+
+    @ManyToOne
+    private Subject subject;
 
     public Student() {
     }
@@ -40,5 +42,13 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 }

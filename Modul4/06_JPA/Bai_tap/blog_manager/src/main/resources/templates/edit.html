@@ -31,7 +31,9 @@
             </tr>
             <tr>
                 <td>Date</td>
-                <td><input hidden type="date" th:field="*{date}"></td>
+
+                <td><span th:text="${blog.date}"></span>
+                    <input  type="hidden" th:field="*{date}"></td>
             </tr>
             <tr>
                 <td><input type="submit" value="Save"><a th:href="@{/}">
