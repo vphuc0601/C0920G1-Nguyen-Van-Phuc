@@ -35,7 +35,7 @@
             <label>Province</label>
             <input type="text" th:field="*{province.name}"/>
         </div>
-        <button class="hover btn-danger "   data-toggle="modal" data-target="#deleteModal">REMOVE</button>
+        <input  type="button" class="hover btn-danger " th:onclick="|setCustomerId('${customer.id}')|" value="REMOVE" data-toggle="modal" data-target="#deleteModal"></input>
     </form>
 </div>
 <div class="modal" tabindex="-1" id="deleteModal">
@@ -43,7 +43,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Delete Customer</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
             </div>
             <div class="modal-body">
                 <p>Are you sure delete this customer</p>
@@ -63,7 +63,7 @@
         document.getElementById("idDeleted").value = id;
     }
     function submitDelete() {
-        document.getElementById("idModal");
+        document.getElementById("idModal").submit();
     }
 </script>
 
