@@ -26,12 +26,13 @@ public class UserController {
         return modelAndView;
     }
     @PostMapping("create")
-    public ModelAndView checkNameValidattion(@Valid @ModelAttribute("user") User user, BindingResult bindingResult){
+    public ModelAndView checkNameValidattion(@Valid @ModelAttribute("user") User user, BindingResult bindingResult,Model model){
         new User().validate(user, bindingResult);
         if(bindingResult.hasFieldErrors()){
             ModelAndView modelAndView=new ModelAndView("create");
             return modelAndView;
         }
+        userService.save(user);
         ModelAndView modelAndView=new ModelAndView();
         return modelAndView;
     }

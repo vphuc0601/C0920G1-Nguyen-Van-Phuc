@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -38,5 +39,16 @@ public class BlogController {
     public String create(@ModelAttribute Blog blog) {
         blogService.save(blog);
         return "redirect:/blog/";
+    }
+    @GetMapping("/search")
+    public String searchBlog(Model model, @RequestParam Optional<String> keyword, Pageable pageable){
+        if (!keyword.isPresent()) {
+            model.addAttribute("blogs", blogService.findAll(pageable));
+            return "blog/list";
+        } else {
+            String keywordOld = keyword.get();
+            model.addAttribute("blogs", blogService.findAllByFirstNameContaining(keywordOld, pageable));
+            return "blog/list";
+        }
     }
 }
