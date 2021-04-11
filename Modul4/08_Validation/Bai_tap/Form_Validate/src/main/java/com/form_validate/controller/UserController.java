@@ -36,5 +36,4 @@ public class UserController {
         ModelAndView modelAndView=new ModelAndView();
         return modelAndView;
     }
-
 }
