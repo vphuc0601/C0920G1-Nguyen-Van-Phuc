@@ -8,6 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BlogServiceImpl implements BlogService {
     @Autowired
@@ -35,5 +37,10 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Page<Blog> findAllByFirstNameContaining(String search, Pageable pageable) {
         return blogRepository.findAllByContentContaining("search", pageable);
+    }
+
+    @Override
+    public List<Blog> findAll() {
+        return blogRepository.findAll();
     }
 }

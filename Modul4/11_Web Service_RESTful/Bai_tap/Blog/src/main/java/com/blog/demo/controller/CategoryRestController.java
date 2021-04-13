@@ -27,12 +27,12 @@ public class CategoryRestController {
 
 
 
-    @RequestMapping(value = "/customers/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Category> getCustomer(@PathVariable("id") long id) {
-        System.out.println("Fetching Customer with id " + id);
+    @RequestMapping(value = "/category/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Category> getCategory(@PathVariable("id") long id) {
+        System.out.println("Fetching Category with id " + id);
         Category category = categoryService.findById(id);
         if (category == null) {
-            System.out.println("Customer with id " + id + " not found");
+            System.out.println("Category with id " + id + " not found");
             return new ResponseEntity<Category>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<Category>(category, HttpStatus.OK);
@@ -40,18 +40,18 @@ public class CategoryRestController {
 
 
 
-    @RequestMapping(value = "/customers/", method = RequestMethod.POST)
-    public ResponseEntity<Void> createCustomer(@RequestBody Category category, UriComponentsBuilder ucBuilder) {
-        System.out.println("Creating Customer " + category.getName());
+    @RequestMapping(value = "/category/", method = RequestMethod.POST)
+    public ResponseEntity<Void> createCategory(@RequestBody Category category, UriComponentsBuilder ucBuilder) {
+        System.out.println("Creating Category " + category.getName());
         categoryService.save(category);
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/customers/{id}").buildAndExpand(category.getId()).toUri());
+        headers.setLocation(ucBuilder.path("/category/{id}").buildAndExpand(category.getId()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
 
 
-    @RequestMapping(value = "/customers/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/category/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Category> updateCategory(@PathVariable("id") long id, @RequestBody Category category) {
         System.out.println("Updating Customer " + id);
 
@@ -71,13 +71,13 @@ public class CategoryRestController {
 
 
 
-    @RequestMapping(value = "/customers/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Category> deleteCustomer(@PathVariable("id") long id) {
-        System.out.println("Fetching & Deleting Customer with id " + id);
+    @RequestMapping(value = "/category/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Category> deleteCategory(@PathVariable("id") long id) {
+        System.out.println("Fetching & Deleting Category with id " + id);
 
-        Category customer = categoryService.findById(id);
-        if (customer == null) {
-            System.out.println("Unable to delete. Customer with id " + id + " not found");
+        Category category = categoryService.findById(id);
+        if (category == null) {
+            System.out.println("Unable to delete. Category with id " + id + " not found");
             return new ResponseEntity<Category>(HttpStatus.NOT_FOUND);
         }
 
