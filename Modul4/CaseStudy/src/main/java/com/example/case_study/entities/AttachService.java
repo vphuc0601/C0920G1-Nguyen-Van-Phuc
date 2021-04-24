@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,6 +18,9 @@ public class AttachService {
     private double attachServiceCost;
     private int attachServiceUnit;
     private String attachServiceStatus;
+
+    @OneToMany(mappedBy = "attachService")
+    private List<ContractDetail> contractDetails;
 
     public AttachService() {
     }

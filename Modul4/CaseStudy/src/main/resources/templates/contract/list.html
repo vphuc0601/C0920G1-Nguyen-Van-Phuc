@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<a th:href="@{/}"><button>BACK TO HOME</button></a>
+<p>
+    <a th:href="@{/contract/create}">
+        Add new Contract
+    </a>
+</p>
+<table class="table table-striped" style="color: red">
+    <thead>
+    <tr>
+        <th>Contract Id</th>
+        <th>Contract Start Date</th>
+        <th>Contract End Date</th>
+        <th>Contract Deposit</th>
+        <th>Contract Total Money</th>
+        <th>Employee Name</th>
+        <th>Customer Name</th>
+        <th>Service Name</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="contract :${contractList}">
+        <td th:text="${contract.id}"></td>
+        <td th:text="${contract.contractStartDate}"></td>
+        <td th:text="${contract.contractEndDate}"></td>
+        <td th:text="${contract.contractDeposit}"></td>
+        <td th:text="${contract.contractTotalMoney}"></td>
+        <td th:text="${contract.employee.employeeName}"></td>
+        <td th:text="${contract.customer.customerName}"></td>
+        <td th:text="${contract.service.serviceName}"></td>
+        <td>
+            <a th:href="@{/contract/edit/{id}(id=${contract.id})}"><button type="button" class="btn btn-outline-danger">Edit</button></a>
+        </td>
+        <td>
+            <a th:href="@{/contract/delete/{id}(id=${contract.id})}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <!--                <nav aria-label="Page navigation example" >-->
+    <!--                    <ul class="pagination justify-content-center">-->
+    <!--                        <li class="page-item"><a class="page-link" th:href="@{'/customer'(page=${customerList.number - 1})}" th:if="${customerList.hasPrevious()}">Previous</a></li>-->
+    <!--                        <li class="page-item"><a class="page-link"> <span th:text="${customerList.number + 1}"></span>/<span th:text="${customerList.totalPages}"></span></a></li>-->
+    <!--                        <li class="page-item"><a class="page-link" th:href="@{'/customer'(page=${customerList.number + 1})}" th:if="${customerList.hasNext()}">Next</a></li>-->
+    <!--                    </ul>-->
+    <!--                </nav>-->
+    <nav aria-label="Page navigation example" style="float: right; margin-right: 25px">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" th:href="@{/customer(page = 0, searchNameContract = ${stringAfterCheck})}">Prevous</a></li>
+            <th:block th:each="i: ${#numbers.sequence(0, contractList.totalPages - 1)}">
+                <li class="page-item">
+                    <a class="page-link" th:href="@{/customer(page=${i},searchNameContract=${stringAfterCheck})}" th:text="${i + 1}"></a>
+                </li>
+            </th:block>
+
+            <li class="page-item"><a class="page-link" th:href="@{/customer(page = ${contractList.totalPages - 1}, searchNameContract = ${stringAfterCheck})}">Next</a></li>
+        </ul>
+    </nav>
+</div>
+<!--<div>-->
+<!--    <a class="btn btn-dark"-->
+<!--       th:href="@{'/contract/contractList'(page=${contractList.number - 1},keyword = ${searchNameContract})}"-->
+<!--       th:if="${contractList.hasPrevious()}">Previous</a>-->
+<!--    <span th:text="${contractList.number + 1}"></span>/<span th:text="${contractList.totalPages}"></span>-->
+<!--    <a class="btn btn-dark"-->
+<!--       th:href="@{'/contract/contractList'(page=${contractList.number + 1},keyword = ${searchNameContract})}"-->
+<!--       th:if="${contractList.hasNext()}">Next</a>-->
+<!--</div>-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -14,28 +14,43 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String employeeId;
     private String employeeName;
-    private Date employeBirthday;
+    private String employeeBirthday;
     private int employeeIdCard;
     private int employeePhone;
     private String employeeEmail;
-    private int educationDegreeId;
-    private int positionId;
     private double employeeSalary;
+    @ManyToOne
+    @JoinColumn(name = "division_id", referencedColumnName = "id")
+    private Division division;
+
+    @ManyToOne
+    @JoinColumn(name = "position_id", referencedColumnName = "id")
+    private Position position;
+
+    @ManyToOne
+    @JoinColumn(name = "education_degree_id", referencedColumnName = "id")
+    private EducationDegree educationDegree;
+
+    public Employee(Division division, Position position, EducationDegree educationDegree) {
+        this.division = division;
+        this.position = position;
+        this.educationDegree = educationDegree;
+    }
 
     public Employee() {
     }
 
-    public Employee(Long id, String employeeName, Date employeBirthday, int employeeIdCard, int employeePhone,
-                    String employeeEmail, int educationDegreeId, int positionId, double employeeSalary) {
+    public Employee(Long id, String employeeId,String employeeName, String employeeBirthday, int employeeIdCard, int employeePhone,
+                    String employeeEmail, double employeeSalary) {
         this.id = id;
+        this.employeeId = employeeId;
         this.employeeName = employeeName;
-        this.employeBirthday = employeBirthday;
+        this.employeeBirthday = employeeBirthday;
         this.employeeIdCard = employeeIdCard;
         this.employeePhone = employeePhone;
         this.employeeEmail = employeeEmail;
-        this.educationDegreeId = educationDegreeId;
-        this.positionId = positionId;
         this.employeeSalary = employeeSalary;
     }
 }

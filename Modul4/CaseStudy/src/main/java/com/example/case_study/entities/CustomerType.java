@@ -1,10 +1,12 @@
 package com.example.case_study.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -18,8 +20,8 @@ public class CustomerType {
     @Column(name = "customer_type_name")
     private String name;
 
-    @OneToMany(mappedBy = "customerType", cascade = CascadeType.ALL)
-    List<Customer> customers;
+    @OneToMany(mappedBy = "customerType")
+    private Set<Customer> customer;
 
     public CustomerType() {
     }
@@ -27,5 +29,9 @@ public class CustomerType {
     public CustomerType(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public CustomerType(Set<Customer> customer) {
+        this.customer = customer;
     }
 }

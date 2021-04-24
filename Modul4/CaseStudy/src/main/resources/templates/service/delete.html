@@ -1,0 +1,98 @@
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html xmlns:th="http://www.thymeleaf.org">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>Delete Customer</title>&ndash;&gt;-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">&ndash;&gt;-->
+<!--&lt;!&ndash;    <style>&ndash;&gt;-->
+<!--&lt;!&ndash;        p {&ndash;&gt;-->
+<!--&lt;!&ndash;            color: red;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+<!--&lt;!&ndash;    </style>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--<div xmlns:th="http://www.thymeleaf.org" class="container-fluid">-->
+<!--    <div id="content" style="background-color: whitesmoke">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-2">-->
+<!--            </div>-->
+<!--            <div class="col-lg-10 bg-light">-->
+<!--                <div class="col-12">-->
+<!--                    <form th:action="@{/customer/delete}" method="post" th:object="${customer}" novalidate="novalidate">-->
+<!--                        <div class="">-->
+<!--                            <input type="hidden" th:field="*{id}">-->
+<!--                            <div class="form-group">-->
+<!--                                <label>Cusstomer ID:</label>-->
+<!--                                <input th:field="*{customerId}" type="text" class="form-control" placeholder="ID customer...">-->
+<!--                                <p class="text-center" th:errors="*{customerId}" ></p>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label>Name:</label>-->
+<!--                                <input th:field="*{customerName}" type="text" class="form-control" placeholder="Name customer...">-->
+<!--                                <p class="text-center" th:errors="*{customerName}" ></p>-->
+<!--                            </div>-->
+<!--                            <div class="form-group ">-->
+<!--                                <label>Date of birth:</label>-->
+<!--                                <input th:field="*{customerBirthday}" type="date" class="form-control" placeholder="Date of birth..."></input>-->
+<!--                                <p class="text-center" th:errors="*{customerBirthday}" ></p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="">-->
+<!--                            <div class="form-group ">-->
+<!--                                <label>Gender:</label><br>-->
+<!--                                &lt;!&ndash;                            <input type="text" th:field="*{gender}" class="form-control" placeholder="Gender...">&ndash;&gt;-->
+<!--                                <select th:field="*{customerGender}" class="form-control">-->
+<!--                                    <option value="0">Male</option>-->
+<!--                                    <option value="1">Female</option>-->
+<!--                                    <option value="2">Other</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                            <div class="form-group ">-->
+<!--                                <label>ID Card:</label><br>-->
+<!--                                <input type="text" th:field="*{customerIdCard}" class="form-control" placeholder="ID Card...">-->
+<!--                                <p class="text-center" th:errors="*{customerIdCard}" ></p>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="">-->
+<!--                            <div class="form-group ">-->
+<!--                                <label>Phone Number:</label>-->
+<!--                                <input th:field="*{customerPhone}" type="text" class="form-control" placeholder="Phone number...">-->
+<!--                                <p class="text-center" th:errors="*{customerPhone}" ></p>-->
+<!--                            </div>-->
+<!--                            <div class="form-group ">-->
+<!--                                <label>Email:</label>-->
+<!--                                <input th:field="*{customerEmail}" type="text" class="form-control" placeholder="abc@gmail.com..."></input>-->
+<!--                                <p class="text-center" th:errors="*{customerEmail}" ></p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="">-->
+<!--                            <div class="form-group ">-->
+<!--                                <label>Address:</label>-->
+<!--                                <input th:field="*{customerAddress}" type="text" class="form-control" placeholder="Address...">-->
+<!--                                <p class="text-center" th:errors="*{customerAddress}" ></p>-->
+<!--                            </div>-->
+<!--                            <div class="form-group ">-->
+<!--                                <label>Customer Type:</label>-->
+<!--                                <input th:field="*{customerType.name}" type="text" class="form-control" placeholder="Address...">-->
+<!--                                <p class="text-center" th:errors="*{customerType}" ></p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <button type="submit" class="btn btn-outline-info">Delete</button>-->
+<!--                        <a th:href="@{/customer}" class="btn btn-outline-info">Close</a>-->
+<!--                    </form>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--&lt;!&ndash;<script src="/js/jquery-3.5.1.min.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"&ndash;&gt;-->
+<!--&lt;!&ndash;        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"&ndash;&gt;-->
+<!--&lt;!&ndash;        crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"&ndash;&gt;-->
+<!--&lt;!&ndash;        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"&ndash;&gt;-->
+<!--&lt;!&ndash;        crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->

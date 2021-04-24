@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -14,6 +15,13 @@ public class Position {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @OneToMany(mappedBy = "position")
+    private Set<Employee> employees;
+
+    public Position(Set<Employee> employees) {
+        this.employees = employees;
+    }
 
     public Position() {
     }

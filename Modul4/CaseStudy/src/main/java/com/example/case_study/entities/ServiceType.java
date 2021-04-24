@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,7 +16,14 @@ public class ServiceType {
     private Long id;
     private String name;
 
+    @OneToMany(mappedBy = "serviceType")
+    private List<Service> service;
+
     public ServiceType() {
+    }
+
+    public ServiceType(List<Service> service) {
+        this.service = service;
     }
 
     public ServiceType(Long id, String name) {

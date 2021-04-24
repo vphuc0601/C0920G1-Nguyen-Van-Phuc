@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -14,6 +15,13 @@ public class EducationDegree {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @OneToMany(mappedBy = "educationDegree")
+    private Set<Employee> employees;
+
+    public EducationDegree(Set<Employee> employees) {
+        this.employees = employees;
+    }
 
     public EducationDegree() {
     }

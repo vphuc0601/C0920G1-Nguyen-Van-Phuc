@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -12,9 +13,17 @@ import javax.persistence.*;
 public class RentType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
+
     private String name;
     private double cost;
+    @OneToMany(mappedBy = "rentType")
+    private List<Service> service;
+
+    public RentType(List<Service> service) {
+        this.service = service;
+    }
 
     public RentType() {
     }

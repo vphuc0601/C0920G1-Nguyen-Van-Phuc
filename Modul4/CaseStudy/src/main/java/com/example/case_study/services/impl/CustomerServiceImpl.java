@@ -13,9 +13,10 @@ import java.util.List;
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
+
     @Override
-    public List<Customer> findAll() {
-        return customerRepository.findAll();
+    public Page<Customer> searchCustomer(String keyword, Pageable pageable) {
+        return customerRepository.search(keyword,pageable);
     }
 
     @Override
@@ -40,6 +41,16 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Page<Customer> findByInputText(String inputSearch, Pageable pageable) {
-        return customerRepository.findByName(inputSearch,pageable);
+        return null;
     }
+
+    @Override
+    public List<Customer> findAll() {
+        return customerRepository.findAll();
+    }
+
+//    @Override
+//    public Page<Customer> findByInputText(String inputSearch, Pageable pageable) {
+//        return customerRepository.findByName(inputSearch,pageable);
+//    }
 }

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -15,7 +16,14 @@ public class Division {
     private Long id;
     private String name;
 
+    @OneToMany(mappedBy = "division")
+    private Set<Employee> employees;
+
     public Division() {
+    }
+
+    public Division(Set<Employee> employees) {
+        this.employees = employees;
     }
 
     public Division(Long id, String name) {

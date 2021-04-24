@@ -4,6 +4,7 @@ import com.example.case_study.entities.Customer;
 import com.example.case_study.services.CustomerService;
 import com.example.case_study.services.CustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -12,44 +13,85 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Optional;
+
 @Controller
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
+    @Autowired
     private CustomerTypeService customerTypeService;
     @GetMapping({"","/"})
-    public ModelAndView getListCustomer(@PageableDefault(value = 4) Pageable pageable){
-//       new ModelAndView("customer/list","customerType", customerTypeService.findAll());
-        return new ModelAndView("customer/list", "customerList",customerService.findAll(pageable));
+    public String goHome(){
+        return "home1";
     }
-    @GetMapping(value = "/create")
+
+
+
+    @GetMapping("customer")
+    public String getAllCustomer(@PageableDefault(size = 4) Pageable pageable,
+                                 @RequestParam Optional<String> searchNameCustomer,
+                                 Model model,
+                                 RedirectAttributes redirectAttributes) {
+        String stringAfterCheck = "";
+        if (!searchNameCustomer.isPresent()) {
+            model.addAttribute("customerList", customerService.findAll(pageable));
+        } else {
+            stringAfterCheck = searchNameCustomer.get();
+            model.addAttribute("customerList", customerService.searchCustomer(stringAfterCheck, pageable));
+        }
+        model.addAttribute("stringAfterCheck", stringAfterCheck);
+        return "customer/list";
+    }
+
+    @GetMapping(value = "customer/create")
     public String showCreateForm(Model model) {
+        model.addAttribute("customerTypeList", customerTypeService.findAll());
         model.addAttribute("customer", new Customer());
+
         return "customer/create";
     }
 
-    @PostMapping(value = "/create")
+    @PostMapping(value = "customer/create")
     public String createCustomer(@ModelAttribute Customer customer, RedirectAttributes redirectAttributes) {
         customerService.save(customer);
         redirectAttributes.addFlashAttribute("successMsg", "Create Customer: "+customer.getCustomerName() +" success!");
-        return "redirect:/";
+        return "redirect:/customer";
     }
 
-    @GetMapping(value = "/edit/{id}")
+    @GetMapping(value = "customer/edit/{id}")
     public String showEditPage(@PathVariable Long id, Model model){
+        model.addAttribute("customerTypeList", customerTypeService.findAll());
         model.addAttribute("customer", customerService.findById(id));
         return "customer/edit";
     }
 
-    @PostMapping(value = "/edit")
+    @PostMapping(value = "customer/edit")
     public String editCustomer(@ModelAttribute Customer customer, RedirectAttributes redirectAttributes){
         customerService.save(customer);
         redirectAttributes.addFlashAttribute("successMsg", "Update Customer: "+customer.getCustomerName() +" success!");
-        return "redirect:/";
+        return "redirect:/customer";
+    }
+    @GetMapping("/customer/delete/{id}")
+    public String deleteCustomer(@PathVariable Long id, Model model) {
+        model.addAttribute("customerTypeList", customerTypeService.findAll());
+        model.addAttribute("customer", customerService.findById(id));
+        return "customer/delete";
+    }
+    @PostMapping(value = "customer/delete")
+    public String deleteCustomer(@RequestParam Long id, RedirectAttributes redirect){
+        customerService.remove(id);
+        redirect.addFlashAttribute("successMsg", "Delete Customer: "+" success!");
+        return "redirect:/customer";
+    }
+    @GetMapping("customer/view/{id}")
+    public String detailCustomer(@PathVariable(name = "id") Long id, Model model) {
+        model.addAttribute("customer", customerService.findById(id));
+        return "customer/view";
     }
 
-    @GetMapping("/search")
-    public ModelAndView searchByText(@RequestParam String inputSearch, @PageableDefault(value = 5)Pageable pageable){
-        return new ModelAndView("customer/list", "customertList", customerService.findByInputText(inputSearch, pageable));
-    }
+//    @GetMapping("customer/search")
+//    public ModelAndView searchCustomer(@RequestParam String keyword, @PageableDefault(value = 4)Pageable pageable){
+//            return new ModelAndView("customer/list", "customerList", customerService.searchCustomer(keyword, pageable));
+//    }
 }

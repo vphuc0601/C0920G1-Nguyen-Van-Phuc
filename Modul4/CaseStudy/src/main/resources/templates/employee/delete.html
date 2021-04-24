@@ -1,0 +1,81 @@
+<div xmlns:th="http://www.thymeleaf.org" class="container-fluid">
+    <div id="content" style="background-color: whitesmoke">
+        <div class="row">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-10 bg-light">
+                <div class="col-12">
+                    <form th:action="@{/employee/delete}" method="post" th:object="${employee}" novalidate="novalidate">
+                        <div class="">
+                            <input type="hidden" th:field="*{id}">
+                            <div class="form-group">
+                                <label>Employee ID:</label>
+                                <input th:field="*{employeeId}" type="text" class="form-control" placeholder="ID customer...">
+                                <p class="text-center" th:errors="*{employeeId}" ></p>
+                            </div>
+                            <div class="form-group">
+                                <label>Name:</label>
+                                <input th:field="*{employeeName}" type="text" class="form-control" placeholder="Name customer...">
+                                <p class="text-center" th:errors="*{employeeName}" ></p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Date of birth:</label>
+                                <input th:field="*{employeeBirthday}" type="date" class="form-control" placeholder="Date of birth..."></input>
+                                <p class="text-center" th:errors="*{employeeBirthday}" ></p>
+                            </div>
+                            <div class="form-group ">
+                                <label>ID Card:</label>
+                                <input th:field="*{employeeIdCard}" type="number" class="form-control" placeholder="ID Card..."></input>
+                                <p class="text-center" th:errors="*{employeeId}" ></p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Phone</label>
+                                <input th:field="*{employeePhone}" type="number" class="form-control" placeholder="Phone..."></input>
+                                <p class="text-center" th:errors="*{employeePhone}" ></p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Email:</label>
+                                <input th:field="*{employeeEmail}" type="text" class="form-control" placeholder="Email..."></input>
+                                <p class="text-center" th:errors="*{employeeEmail}" ></p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Salary:</label>
+                                <input th:field="*{employeeSalary}" type="number" class="form-control" placeholder="Salary..."></input>
+                                <p class="text-center" th:errors="*{employeeSalary}" ></p>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group ">
+                                <label>Position:</label>
+                                <input th:field="*{position.name}" type="text" class="form-control" placeholder="Position...">
+                                <p class="text-center" th:errors="*{position}" ></p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Division:</label>
+                                <input th:field="*{division.name}" type="text" class="form-control" placeholder="Division...">
+                                <p class="text-center" th:errors="*{position}" ></p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Education Degree:</label>
+                                <input th:field="*{educationDegree.name}" type="text" class="form-control" placeholder="Education...">
+                                <p class="text-center" th:errors="*{educationDegree}" ></p>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-outline-info">Delete</button>
+                        <a th:href="@{/employee}" class="btn btn-outline-info">Close</a>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script src="/js/jquery-3.5.1.min.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"-->
+<!--        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"-->
+<!--        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--</body>-->
+<!--</html>-->

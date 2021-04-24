@@ -1,5 +1,6 @@
 package com.example.case_study.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,22 +28,22 @@ public class Customer {
     private String customerPhone;
     @Column(name = "customer_email")
     private String customerEmail;
-    @Column(name = "customer_type_id")
-    private String customerTypeId;
     @Column(name = "customer_address")
     private String customerAddress;
 
     @ManyToOne
-    @JoinColumn(name = "customer_type_id", nullable = false, referencedColumnName = "customer_type_id")
+    @JoinColumn(name = "customer_type_id")
     private CustomerType customerType;
 
+    public Customer(CustomerType customerType) {
+        this.customerType = customerType;
+    }
 
     public Customer() {
     }
 
     public Customer(Long id, String customerId, String customerName, String customerBirthday, String customerGender,
-                    String customerIdCard, String customerPhone, String customerEmail, String customerTypeId,
-                    String customerAddress) {
+                    String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
         this.id = id;
         this.customerId = customerId;
         this.customerName = customerName;
@@ -51,7 +52,6 @@ public class Customer {
         this.customerIdCard = customerIdCard;
         this.customerPhone = customerPhone;
         this.customerEmail = customerEmail;
-        this.customerTypeId = customerTypeId;
         this.customerAddress = customerAddress;
     }
 }
