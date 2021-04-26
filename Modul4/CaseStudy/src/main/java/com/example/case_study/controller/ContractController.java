@@ -52,9 +52,17 @@ public class ContractController {
     }
 
     @PostMapping("contract/create")
-    public String save( @ModelAttribute("contract") Contract contract, Model model) {
+    public String save(@Valid @ModelAttribute("contract") Contract contract,BindingResult bindingResult, Model model) {
+        new Contract().validate(contract,bindingResult);
+        if(bindingResult.hasErrors()){
+            model.addAttribute("employee", employeeService.findAll());
+            model.addAttribute("customer", customerService.findAll());
+            model.addAttribute("service", serviceService.findAll());
+            return "/contract/create";
+        }else {
             contractService.save(contract);
             return "redirect:/contract";
+        }
     }
 
     @GetMapping("contract/edit/{id}")

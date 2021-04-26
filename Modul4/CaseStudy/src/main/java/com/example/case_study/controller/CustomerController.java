@@ -3,16 +3,19 @@ package com.example.case_study.controller;
 import com.example.case_study.entities.Customer;
 import com.example.case_study.services.CustomerService;
 import com.example.case_study.services.CustomerTypeService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -53,10 +56,17 @@ public class CustomerController {
     }
 
     @PostMapping(value = "customer/create")
-    public String createCustomer(@ModelAttribute Customer customer, RedirectAttributes redirectAttributes) {
-        customerService.save(customer);
-        redirectAttributes.addFlashAttribute("successMsg", "Create Customer: "+customer.getCustomerName() +" success!");
-        return "redirect:/customer";
+    public String createCustomer(@Valid @ModelAttribute Customer customer, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+        new Customer().validate(customer,bindingResult);
+        if(bindingResult.hasErrors()){
+            model.addAttribute("customerTypeList", customerTypeService.findAll());
+            return "customer/create";
+        }else {
+            customerService.save(customer);
+            redirectAttributes.addFlashAttribute("successMsg", "Create Customer: "+customer.getCustomerName() +" success!");
+            return "redirect:/customer";
+        }
+
     }
 
     @GetMapping(value = "customer/edit/{id}")

@@ -40,11 +40,12 @@
             <div>
                 <label>Contract Deposit</label>
                 <input class="input-group mb-3" type="text" th:field="*{contractDeposit}"/>
+                <p style="color: red" th:if="${#fields.hasErrors('contractDeposit')}" th:errors="*{contractDeposit}"></p>
             </div>
             <label>Contract Total Money</label>
             <input class="input-group mb-3" type="text" th:field="*{contractTotalMoney}"/>
-            <!--            <p th:if="${#fields.hasErrors('contractTotalMoney')}" th:errors="*{contractTotalMoney}"-->
-            <!--               style="color: red"></p>-->
+                        <p th:if="${#fields.hasErrors('contractTotalMoney')}" th:errors="*{contractTotalMoney}"
+                           style="color: red"></p>
 
             <div>
                 <label>Employee</label>

@@ -11,13 +11,13 @@
 
 </head>
 <body>
-<a th:href="@{/}"><button>BACK TO HOME</button></a>
+<a th:href="@{/}" ><button class="btn-outline-primary">BACK TO HOME</button></a>
 <p>
     <a th:href="@{/contract/create}">
-        Add new Contract
+       Create Contract
     </a>
 </p>
-<table class="table table-striped" style="color: red">
+<table class="table table-striped" >
     <thead>
     <tr>
         <th>Contract Id</th>
@@ -42,7 +42,7 @@
         <td th:text="${contract.customer.customerName}"></td>
         <td th:text="${contract.service.serviceName}"></td>
         <td>
-            <a th:href="@{/contract/edit/{id}(id=${contract.id})}"><button type="button" class="btn btn-outline-danger">Edit</button></a>
+            <a th:href="@{/contract/edit/{id}(id=${contract.id})}"><button type="button" class="btn btn-outline-primary">Edit</button></a>
         </td>
         <td>
             <a th:href="@{/contract/delete/{id}(id=${contract.id})}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
@@ -51,34 +51,21 @@
     </tbody>
 </table>
 <div>
-    <!--                <nav aria-label="Page navigation example" >-->
-    <!--                    <ul class="pagination justify-content-center">-->
-    <!--                        <li class="page-item"><a class="page-link" th:href="@{'/customer'(page=${customerList.number - 1})}" th:if="${customerList.hasPrevious()}">Previous</a></li>-->
-    <!--                        <li class="page-item"><a class="page-link"> <span th:text="${customerList.number + 1}"></span>/<span th:text="${customerList.totalPages}"></span></a></li>-->
-    <!--                        <li class="page-item"><a class="page-link" th:href="@{'/customer'(page=${customerList.number + 1})}" th:if="${customerList.hasNext()}">Next</a></li>-->
-    <!--                    </ul>-->
-    <!--                </nav>-->
+
     <nav aria-label="Page navigation example" style="float: right; margin-right: 25px">
         <ul class="pagination">
             <li class="page-item"><a class="page-link" th:href="@{/customer(page = 0, searchNameContract = ${stringAfterCheck})}">Prevous</a></li>
             <th:block th:each="i: ${#numbers.sequence(0, contractList.totalPages - 1)}">
                 <li class="page-item">
-                    <a class="page-link" th:href="@{/customer(page=${i},searchNameContract=${stringAfterCheck})}" th:text="${i + 1}"></a>
+                    <a class="page-link" th:href="@{/contract(page=${i},searchNameContract=${stringAfterCheck})}" th:text="${i + 1}"></a>
                 </li>
             </th:block>
 
-            <li class="page-item"><a class="page-link" th:href="@{/customer(page = ${contractList.totalPages - 1}, searchNameContract = ${stringAfterCheck})}">Next</a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contract(page = ${contractList.totalPages - 1}, searchNameContract = ${stringAfterCheck})}">Next</a></li>
         </ul>
     </nav>
 </div>
-<!--<div>-->
-<!--    <a class="btn btn-dark"-->
-<!--       th:href="@{'/contract/contractList'(page=${contractList.number - 1},keyword = ${searchNameContract})}"-->
-<!--       th:if="${contractList.hasPrevious()}">Previous</a>-->
-<!--    <span th:text="${contractList.number + 1}"></span>/<span th:text="${contractList.totalPages}"></span>-->
-<!--    <a class="btn btn-dark"-->
-<!--       th:href="@{'/contract/contractList'(page=${contractList.number + 1},keyword = ${searchNameContract})}"-->
-<!--       th:if="${contractList.hasNext()}">Next</a>-->
+
 <!--</div>-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

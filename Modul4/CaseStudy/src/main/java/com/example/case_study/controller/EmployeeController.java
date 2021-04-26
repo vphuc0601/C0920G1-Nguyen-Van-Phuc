@@ -11,9 +11,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -53,10 +55,18 @@ public class EmployeeController {
     }
 
     @PostMapping(value = "employee/create")
-    public String createEmployee(@ModelAttribute Employee employee, RedirectAttributes redirectAttributes) {
-        employeeService.save(employee);
-        redirectAttributes.addFlashAttribute("successMsg", "Create Employee: "+employee.getEmployeeName() +" success!");
-        return "redirect:/employee";
+    public String createEmployee(@Valid @ModelAttribute Employee employee, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+        new Employee().validate(employee,bindingResult);
+        if(bindingResult.hasErrors()){
+            model.addAttribute("divisionList",divisionService.findAll());
+            model.addAttribute("positionList",positionService.findAll());
+            model.addAttribute("educationDegreeList", educationDegreeService.findAll());
+            return "employee/create";
+        }else {
+            employeeService.save(employee);
+            redirectAttributes.addFlashAttribute("successMsg", "Create Employee: " + employee.getEmployeeName() + " success!");
+            return "redirect:/employee";
+        }
     }
 
     @GetMapping(value = "employee/edit/{id}")

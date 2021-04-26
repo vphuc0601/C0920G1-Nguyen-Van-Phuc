@@ -2,8 +2,12 @@ package com.example.case_study.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Date;
 import java.util.Set;
 
@@ -11,14 +15,25 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "contract")
-public class Contract {
+public class Contract implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String contractStartDate;
-    private String contractEndDate;
-    private double contractDeposit;
-    private double contractTotalMoney;
+
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @PastOrPresent(message = "asd")
+    private Date contractStartDate;
+
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    private Date contractEndDate;
+
+    @NotNull(message = "Deposit not empty")
+    @Pattern(regexp = "^[0-9]*[1-9][0-9]*(\\\\.[0-9]+)?$", message = "Deposit incorrect format")
+    private String contractDeposit;
+
+    @NotNull(message = "Not empty")
+    @Pattern(regexp = "^[0-9]*[1-9][0-9]*(\\\\.[0-9]+)?$", message = "Total money not format")
+    private String contractTotalMoney;
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
@@ -45,11 +60,21 @@ public class Contract {
         this.contractDetails = contractDetails;
     }
 
-    public Contract(Long id, String contractStartDate, String contractEndDate, double contractDeposit, double contractTotalMoney) {
+    public Contract(Long id, Date contractStartDate, Date contractEndDate, String contractDeposit, String contractTotalMoney) {
         this.id = id;
         this.contractStartDate = contractStartDate;
         this.contractEndDate = contractEndDate;
         this.contractDeposit = contractDeposit;
         this.contractTotalMoney = contractTotalMoney;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return Contract.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+
     }
 }
