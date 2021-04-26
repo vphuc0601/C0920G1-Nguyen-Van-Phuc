@@ -10,6 +10,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -52,7 +53,7 @@ public class ContractController {
     }
 
     @PostMapping("contract/create")
-    public String save(@Valid @ModelAttribute("contract") Contract contract,BindingResult bindingResult, Model model) {
+    public String save(@Validated @ModelAttribute("contract") Contract contract, BindingResult bindingResult, Model model) {
         new Contract().validate(contract,bindingResult);
         if(bindingResult.hasErrors()){
             model.addAttribute("employee", employeeService.findAll());

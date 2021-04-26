@@ -8,6 +8,9 @@ import org.springframework.validation.Validator;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+
+import java.sql.Time;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -20,20 +23,22 @@ public class Contract implements Validator {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
-    @PastOrPresent(message = "asd")
-    private Date contractStartDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @FutureOrPresent(message = "Must be the present or future date")
+    private LocalDate contractStartDate;
 
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Future(message = "Must be the future date")
     private Date contractEndDate;
 
     @NotNull(message = "Deposit not empty")
-    @Pattern(regexp = "^[0-9]*[1-9][0-9]*(\\\\.[0-9]+)?$", message = "Deposit incorrect format")
-    private String contractDeposit;
-
+    @Positive(message = "Deposit incorrect format")
+//    @Pattern(regexp = "^[0-9]*[1-9][0-9]*(\\\\.[0-9]+)?$", message = "Deposit incorrect format")
+    private double contractDeposit;
     @NotNull(message = "Not empty")
-    @Pattern(regexp = "^[0-9]*[1-9][0-9]*(\\\\.[0-9]+)?$", message = "Total money not format")
-    private String contractTotalMoney;
+    @Positive(message = "Total money incorrect format")
+//    @Pattern(regexp = "^[0-9]*[1-9][0-9]*(\\\\.[0-9]+)?$", message = "Total money not format")
+    private double contractTotalMoney;
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
@@ -60,7 +65,7 @@ public class Contract implements Validator {
         this.contractDetails = contractDetails;
     }
 
-    public Contract(Long id, Date contractStartDate, Date contractEndDate, String contractDeposit, String contractTotalMoney) {
+    public Contract(Long id, LocalDate contractStartDate, Date contractEndDate, double contractDeposit, double contractTotalMoney) {
         this.id = id;
         this.contractStartDate = contractStartDate;
         this.contractEndDate = contractEndDate;
