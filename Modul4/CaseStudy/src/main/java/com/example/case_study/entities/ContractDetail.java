@@ -13,6 +13,7 @@ public class ContractDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(columnDefinition = "INT")
     private int quantity;
 
     @ManyToOne(cascade = CascadeType.MERGE)

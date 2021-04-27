@@ -19,6 +19,6 @@ public interface ContractService {
 
     Page<Contract> findByInputText(String inputSearch, Pageable pageable);
 
-
+    double getTotalMoney(Contract contract);
 
 }

@@ -64,6 +64,7 @@ public class ServiceController {
 //        model.addAttribute("divisionList", divisionService.findAll());
 //        model.addAttribute("educationDegreeList", educationDegreeService.findAll());
 //        model.addAttribute("positionList", positionService.findAll());
+        model.addAttribute("rentTypeList", rentTypeService.findAll());
         model.addAttribute("service", serviceService.findById(id));
         return "service/edit";
     }

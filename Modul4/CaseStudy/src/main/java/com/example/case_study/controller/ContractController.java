@@ -61,6 +61,7 @@ public class ContractController {
             model.addAttribute("service", serviceService.findAll());
             return "/contract/create";
         }else {
+            model.addAttribute("contractTotalMoney", contractService.getTotalMoney(contract));
             contractService.save(contract);
             return "redirect:/contract";
         }

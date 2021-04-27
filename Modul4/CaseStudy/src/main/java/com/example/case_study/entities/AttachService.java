@@ -14,9 +14,13 @@ public class AttachService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(columnDefinition = "VARCHAR(255)")
     private String attachServiceName;
+    @Column(columnDefinition = "DOUBLE")
     private double attachServiceCost;
+    @Column(columnDefinition = "INT")
     private int attachServiceUnit;
+    @Column(columnDefinition = "VARCHAR(255)")
     private String attachServiceStatus;
 
     @OneToMany(mappedBy = "attachService")

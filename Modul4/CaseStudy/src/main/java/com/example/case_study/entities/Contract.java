@@ -25,19 +25,24 @@ public class Contract implements Validator {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @FutureOrPresent(message = "Must be the present or future date")
+    @Column(columnDefinition = "DATE")
     private LocalDate contractStartDate;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Future(message = "Must be the future date")
-    private Date contractEndDate;
+    @Column(columnDefinition = "DATE")
+    private LocalDate contractEndDate;
 
     @NotNull(message = "Deposit not empty")
     @Positive(message = "Deposit incorrect format")
+    @Column(columnDefinition = "DOUBLE")
 //    @Pattern(regexp = "^[0-9]*[1-9][0-9]*(\\\\.[0-9]+)?$", message = "Deposit incorrect format")
     private double contractDeposit;
-    @NotNull(message = "Not empty")
-    @Positive(message = "Total money incorrect format")
+
+//    @NotNull(message = "Not empty")
+//    @Positive(message = "Total money incorrect format")
 //    @Pattern(regexp = "^[0-9]*[1-9][0-9]*(\\\\.[0-9]+)?$", message = "Total money not format")
+@Column(columnDefinition = "DOUBLE")
     private double contractTotalMoney;
 
     @ManyToOne
@@ -65,7 +70,7 @@ public class Contract implements Validator {
         this.contractDetails = contractDetails;
     }
 
-    public Contract(Long id, LocalDate contractStartDate, Date contractEndDate, double contractDeposit, double contractTotalMoney) {
+    public Contract(Long id, LocalDate contractStartDate, LocalDate contractEndDate, double contractDeposit, double contractTotalMoney) {
         this.id = id;
         this.contractStartDate = contractStartDate;
         this.contractEndDate = contractEndDate;
@@ -80,6 +85,20 @@ public class Contract implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
+        Contract contract = (Contract) target;
 
+        LocalDate localDateInput1 = contract.contractStartDate;
+        LocalDate localDateInput2 = contract.contractEndDate;
+
+
+        if (localDateInput1 == null || localDateInput2 == null) {
+            errors.rejectValue("contractStartDate", "DateNotNull");
+            errors.rejectValue("contractEndDate", "DateNotNull");
+        }   else {
+            if (localDateInput2.isBefore(localDateInput1)) {
+                errors.rejectValue("contractEndDate", "EndDateMustAfterOrEqualStartDate");
+            }
+        }
     }
 }
+

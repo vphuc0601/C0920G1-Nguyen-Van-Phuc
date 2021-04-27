@@ -130,98 +130,97 @@
                     <div class="form-group col-12">
                         <form th:action="@{/employee/create}" method="post" th:object="${employee}"
                               novalidate="novalidate">
-                            <div class="form-row">
-                                <input type="hidden" th:field="*{id}">
-                                <div class="col form-label-group ">
-                                    <input id="employeeId" th:field="*{employeeId}" type="text" class="form-control"
-                                           placeholder="Id employee...">
-                                    <label for="employeeId">Employee Id:</label>
-                                    <p class="text-center" style="color:red;" th:errors="*{employeeId}"></p>
-                                </div>
-                                <div class="col form-label-group ">
-                                    <input id="employeeName" th:field="*{employeeName}" type="text" class="form-control"
-                                           placeholder="Name employee...">
-                                    <label for="employeeName">Name:</label>
-                                    <p class="text-center" style="color:red" th:errors="*{employeeName}"></p>
-                                </div>
-                                <div class="col form-label-group ">
-                                    <input id="employeeBirthday" th:field="*{employeeBirthday}" type="date"
-                                           class="form-control" placeholder="Date of birth..."></input>
-                                    <label for="employeeBirthday">Date of birth:</label>
-                                    <p class="text-center" style="color:red" th:errors="*{employeeBirthday}"></p>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col form-label-group ">
-                                    <input id="employeeIdCard" type="text" th:field="*{employeeIdCard}"
-                                           class="form-control" placeholder="ID Card...">
-                                    <label for="employeeIdCard">ID Card:</label><br>
-                                    <p class="text-center" style="color:red" th:errors="*{employeeIdCard}"></p>
-                                </div>
-                                <div class="col form-label-group ">
-                                    <input id="employeePhone" th:field="*{employeePhone}" type="text"
-                                           class="form-control" placeholder="Phone number...">
-                                    <label for="employeePhone">Phone Number:</label>
-                                    <p class="text-center" style="color:red" th:errors="*{employeePhone}"></p>
-                                </div>
-                                <div class="col form-label-group ">
-                                    <input id="employeeSalary" th:field="*{employeeSalary}" type="text"
-                                           class="form-control" placeholder="Salary...">
-                                    <label for="employeeSalary">Employee Salary:</label>
-                                    <p class="text-center" style="color:red" th:errors="*{employeeSalary}"></p>
-                                </div>
-                                <div class="col form-label-group ">
-                                    <input id="employeeEmail" th:field="*{employeeEmail}" type="text"
-                                           class="form-control" placeholder="abc@gmail.com..."></input>
-                                    <label for="employeeEmail">Email:</label>
-                                    <p class="text-center" style="color:red" th:errors="*{employeeEmail}"></p>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col form-label-group ">
-                                    <select id="division" th:field="*{division}" class="form-control"
-                                            style="height: 50px">
-                                        <option
-                                                th:each="di : ${divisionList}"
-                                                th:value="${di.id}"
-                                                th:text="${di.name}"></option>
-                                    </select>
-                                </div>
-                                <div class="col form-label-group ">
-                                    <select id="position" th:field="*{position}" class="form-control"
-                                            style="height: 50px">
-                                        <option
-                                                th:each="po : ${positionList}"
-                                                th:value="${po.id}"
-                                                th:text="${po.name}"></option>
-                                    </select>
-                                </div>
-                                <div class="col form-label-group ">
-                                    <select id="education" th:field="*{educationDegree}" class="form-control"
-                                            style="height: 50px">
-                                        <option
-                                                th:each="edu : ${educationDegreeList}"
-                                                th:value="${edu.id}"
-                                                th:text="${edu.name}"></option>
-                                    </select>
-                                </div>
-                            </div>
 
-                            <button type="submit" class="btn btn-outline-info">Save</button>
-                            <a th:href="@{/employee}" class="btn btn-outline-info">Close</a>
+                            <input type="hidden" th:field="*{id}">
+                            <div class="col form-label-group ">
+                                <label for="employeeId">Employee Id:</label>
+                                <input id="employeeId" th:field="*{employeeId}" type="text" class="form-control"
+                                       placeholder="Id employee...">
+                                <p class="text-center" style="color:red;" th:errors="*{employeeId}"></p>
+                            </div>
+                            <div class="col form-label-group ">
+                                <label for="employeeName">Name:</label>
+                                <input id="employeeName" th:field="*{employeeName}" type="text" class="form-control"
+                                       placeholder="Name employee...">
+                                <p class="text-center" style="color:red" th:errors="*{employeeName}"></p>
+                            </div>
+                            <div class="col form-label-group ">
+                                <label for="employeeBirthday">Date of birth:</label>
+                                <input id="employeeBirthday" th:field="*{employeeBirthday}" type="date"
+                                       class="form-control" placeholder="Date of birth..."></input>
+                                <p class="text-center" style="color:red" th:errors="*{employeeBirthday}"></p>
+                            </div>
+                            <div class="col form-label-group ">
+                                <label for="employeeIdCard">ID Card:</label><br>
+                                <input id="employeeIdCard" type="text" th:field="*{employeeIdCard}"
+                                       class="form-control" placeholder="ID Card...">
+                                <p class="text-center" style="color:red" th:errors="*{employeeIdCard}"></p>
+                            </div>
+                            <div class="col form-label-group ">
+                                <label for="employeePhone">Phone Number:</label>
+                                <input id="employeePhone" th:field="*{employeePhone}" type="text"
+                                       class="form-control" placeholder="Phone number...">
+                                <p class="text-center" style="color:red" th:errors="*{employeePhone}"></p>
+                            </div>
+                            <div class="col form-label-group ">
+                                <label for="employeeSalary">Employee Salary:</label>
+                                <input id="employeeSalary" th:field="*{employeeSalary}" type="text"
+                                       class="form-control" placeholder="Salary...">
+                                <p class="text-center" style="color:red" th:errors="*{employeeSalary}"></p>
+                            </div>
+                            <div class="col form-label-group ">
+                                <label for="employeeEmail">Email:</label>
+                                <input id="employeeEmail" th:field="*{employeeEmail}" type="text"
+                                       class="form-control" placeholder="abc@gmail.com..."></input>
+                                <p class="text-center" style="color:red" th:errors="*{employeeEmail}"></p>
+                            </div>
+                            <div class="col form-label-group ">
+                                <label for="division">Division:</label>
+                                <select id="division" th:field="*{division}" class="form-control"
+                                        style="height: 50px">
+                                    <option
+                                            th:each="di : ${divisionList}"
+                                            th:value="${di.id}"
+                                            th:text="${di.name}"></option>
+                                </select>
+                            </div>
+                            <div class="col form-label-group ">
+                                <label for="position">Position:</label>
+                                <select id="position" th:field="*{position}" class="form-control"
+                                        style="height: 50px">
+                                    <option
+                                            th:each="po : ${positionList}"
+                                            th:value="${po.id}"
+                                            th:text="${po.name}"></option>
+                                </select>
+                            </div>
+                            <div class="col form-label-group ">
+                                <label for="education">Education Degree:</label>
+                                <select id="education" th:field="*{educationDegree}" class="form-control"
+                                        style="height: 50px">
+                                    <option
+                                            th:each="edu : ${educationDegreeList}"
+                                            th:value="${edu.id}"
+                                            th:text="${edu.name}"></option>
+                                </select>
+                            </div>
+                            <div style="text-align: center">
+                                <button type="submit" class="btn btn-outline-info">Save</button>
+                                <a th:href="@{/employee}" class="btn btn-outline-info">Close</a>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+</div>
 
-    <div class="card" style="margin-top: 0%">
-        <div class="card-body" style="text-align: center">
-            ©copyright-nguyenvanphuc
-        </div>
-    </div>
+<!--<div class="card" style="margin-bottom: 0%" >-->
+<!--    <div class="card-body" style="text-align: center">-->
+<!--        ©copyright-nguyenvanphuc-->
+<!--    </div>-->
+<!--</div>-->
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

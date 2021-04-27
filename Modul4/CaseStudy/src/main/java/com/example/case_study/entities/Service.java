@@ -14,14 +14,23 @@ public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(columnDefinition = "VARCHAR(255)")
     private String serviceName;
+    @Column(columnDefinition = "VARCHAR(255)")
     private String serviceId;
+    @Column(columnDefinition = "DOUBLE")
     private Double serviceArea;
+    @Column(columnDefinition = "DOUBLE")
     private Double serviceCost;
+    @Column(columnDefinition = "INT")
     private int serviceMaxPeople;
+    @Column(columnDefinition = "VARCHAR(255)")
     private String standardRoom;
+    @Column(columnDefinition = "VARCHAR(255)")
     private String descriptionOtherConvenience;
+    @Column(columnDefinition = "VARCHAR(255)")
     private String poolArea;
+    @Column(columnDefinition = "INT")
     private int numberOfFloors;
 
     @ManyToOne

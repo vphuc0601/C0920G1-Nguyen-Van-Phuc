@@ -14,4 +14,6 @@ public interface RentTypeService {
     void save(RentType rentType);
 
     void remove(Long id);
+
+
 }

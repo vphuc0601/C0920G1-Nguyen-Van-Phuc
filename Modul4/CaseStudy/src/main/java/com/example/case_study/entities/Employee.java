@@ -7,9 +7,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
@@ -26,30 +24,38 @@ public class Employee implements Validator {
 
     @NotBlank(message = "ID not empty")
     @Pattern(regexp = "^(NV-)\\d{4}$", message = "Employee Id must be NV-xxxx")
+    @Column(columnDefinition = "VARCHAR(255)")
     private String employeeId;
 
     @NotBlank(message = "Name not empty")
+    @Column(columnDefinition = "VARCHAR(255)")
     private String employeeName;
 
     @PastOrPresent
     @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @Column(columnDefinition = "DATETIME")
     private Date employeeBirthday;
 
     @NotBlank(message = "Not empty")
     @Pattern(regexp = "^[0-9]{9}", message = "ID Card must be 10 number")
-    private int employeeIdCard;
+    @Column(columnDefinition = "VARCHAR(255)")
+    private String employeeIdCard;
 
     @NotBlank(message = "Phone not empty")
-    @Pattern(regexp = "^0\\\\d{9}$", message = "Phone incorrect format")
-    private int employeePhone;
+    @Pattern(regexp = "^0[0-9]{9}$", message = "Phone incorrect format")
+    @Column(columnDefinition = "INT")
+    private String employeePhone;
 
     @NotBlank(message = "Email not empty")
     @Pattern(regexp = "^[a-z0-9_]+[a-z0-9]@([a-z0-9]+\\.)[a-z]+(|\\.[a-z]+)$", message = "Email incorrect format")
+    @Column(columnDefinition = "VARCHAR(255)")
     private String employeeEmail;
 
     @NotBlank(message = "Salary not Empty")
-    @Pattern(regexp = "^\\d+$", message = "Salary incorrect format")
-    private double employeeSalary;
+//    @Pattern(regexp = "^\\d+$", message = "Salary incorrect format")
+    @Positive(message = "Salary incorrect")
+    @Column(columnDefinition = "DOUBLE")
+    private String employeeSalary;
 
     @ManyToOne
     @JoinColumn(name = "division_id", referencedColumnName = "id")
@@ -72,8 +78,8 @@ public class Employee implements Validator {
     public Employee() {
     }
 
-    public Employee(Long id, String employeeId,String employeeName, Date employeeBirthday, int employeeIdCard, int employeePhone,
-                    String employeeEmail, double employeeSalary) {
+    public Employee(Long id, String employeeId,String employeeName, Date employeeBirthday, String employeeIdCard, String employeePhone,
+                    String employeeEmail, String employeeSalary) {
         this.id = id;
         this.employeeId = employeeId;
         this.employeeName = employeeName;

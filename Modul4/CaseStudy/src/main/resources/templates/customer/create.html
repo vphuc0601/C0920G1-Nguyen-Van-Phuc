@@ -21,7 +21,6 @@
     </nav>
 
 
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -54,7 +53,9 @@
 <div style="position: relative;top: 135px ">
 
     <div class="card" style="width: 18rem;position: absolute;float: left">
-        <%--    <img class="card-img-top" src="https://bazantravel.com/cdn/medias/uploads/53/53114-furama-resort-da-nang-11.jpg" alt="Card image cap">--%>
+        <%-- <img class="card-img-top"
+                  src="https://bazantravel.com/cdn/medias/uploads/53/53114-furama-resort-da-nang-11.jpg"
+                  alt="Card image cap">--%>
         <div id="myCarousel" class="carousel slide border" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -126,73 +127,75 @@
                 <div class="col-lg-2 bg-light">
                 </div>
                 <div class="col-lg-10 bg-light">
-                    <div class="form-group col-12" >
-                        <form th:action="@{/customer/create}" method="post" th:object="${customer}" novalidate="novalidate" >
-                            <div class="form-row" >
-                                <input type="hidden" th:field="*{id}">
-                                <div class="col form-label-group ">
-                                    <input id="customerId" th:field="*{customerId}" type="text" class="form-control" placeholder="Id customer...">
-                                    <label for="customerId">Customer Id:</label>
-                                    <p style="color: red" class="text-center" th:errors="*{customerId}" ></p>
-                                </div>
-                                <div class="col form-label-group ">
-                                    <input id="customerName" th:field="*{customerName}" type="text" class="form-control" placeholder="Name customer...">
-                                    <label for="customerName">Name:</label>
-                                    <p style="color: red" class="text-center" th:errors="*{customerName}" ></p>
-                                </div>
-                                <div class="col form-label-group ">
-                                    <input id="customerBirthday" th:field="*{customerBirthday}" type="date" class="form-control" placeholder="Date of birth..."></input>
-                                    <label for="customerBirthday">Date of birth:</label>
-                                    <p style="color: red" class="text-center" th:errors="*{customerBirthday}" ></p>
-
-                                </div>
+                    <div class="form-group col-12">
+                        <form th:action="@{/customer/create}" method="post" th:object="${customer}"
+                              novalidate="novalidate">
+                            <!--                            <div class="form-row" >-->
+                            <input type="hidden" th:field="*{id}">
+                            <div class="col form-label-group ">
+                                <label for="customerId">Customer Id:</label>
+                                <input id="customerId" th:field="*{customerId}" type="text" class="form-control"
+                                       placeholder="Id customer...">
+                                <p style="color: red" class="text-center" th:errors="*{customerId}"></p>
                             </div>
-                            <div class="form-row">
-                                <div class="col form-label-group ">
-                                    <select id="customerGender" th:field="*{customerGender}" class="form-control" style="height: 50px">
-                                        <option value="0">Male</option>
-                                        <option value="1">Female</option>
-                                        <option value="2">Other</option>
-                                    </select>
-                                </div>
-                                <div class="col form-label-group ">
-                                    <input id="customerIdCard" type="text" th:field="*{customerIdCard}" class="form-control" placeholder="ID Card...">
-                                    <label for="customerIdCard">ID Card:</label><br>
-                                    <p style="color: red" class="text-center" th:errors="*{customerIdCard}" ></p>
-
-                                </div>
+                            <div class="col form-label-group ">
+                                <label for="customerName">Name:</label>
+                                <input id="customerName" th:field="*{customerName}" type="text" class="form-control"
+                                       placeholder="Name customer...">
+                                <p style="color: red" class="text-center" th:errors="*{customerName}"></p>
                             </div>
-                            <div class="form-row">
-                                <div class="col form-label-group ">
-                                    <input id="customerPhone" th:field="*{customerPhone}" type="text" class="form-control" placeholder="Phone number...">
-                                    <label for="customerPhone">Phone Number:</label>
-                                    <p style="color: red" class="text-center" th:errors="*{customerPhone}" ></p>
-
-                                </div>
-                                <div class="col form-label-group ">
-                                    <input id="customerEmail" th:field="*{customerEmail}" type="text" class="form-control" placeholder="abc@gmail.com..."></input>
-                                    <label for="customerEmail">Email:</label>
-                                    <p style="color: red" class="text-center" th:errors="*{customerEmail}" ></p>
-
-                                </div>
+                            <div class="col form-label-group ">
+                                <label for="customerBirthday">Date of birth:</label>
+                                <input id="customerBirthday" th:field="*{customerBirthday}" type="date"
+                                       class="form-control" placeholder="Date of birth..."></input>
+                                <p style="color: red" class="text-center" th:errors="*{customerBirthday}"></p>
                             </div>
-                            <div class="form-row">
-                                <div class="col form-label-group ">
-                                    <input id="customerAddress" th:field="*{customerAddress}" type="text" class="form-control" placeholder="Address...">
-                                    <label for="customerAddress">Address:</label>
-                                    <p style="color: red" class="text-center" th:errors="*{customerAddress}" ></p>
-                                </div>
-                                <div class="col form-label-group ">
-                                    <select id="type" th:field="*{customerType}" class="form-control" style="height: 50px">
-                                        <option
-                                                th:each="cusType : ${customerTypeList}"
-                                                th:value="${cusType.id}"
-                                                th:text="${cusType.name}"></option>
-                                    </select>
-                                </div>
+                            <div class="col form-label-group ">
+                                <label for="customerGender">Gender:</label>
+                                <select id="customerGender" th:field="*{customerGender}" class="form-control"
+                                        style="height: 50px">
+                                    <option value="0">Male</option>
+                                    <option value="1">Female</option>
+                                    <option value="2">Other</option>
+                                </select>
                             </div>
-                            <button type="submit" class="btn btn-outline-info">Save</button>
-                            <a th:href="@{/customer}" class="btn btn-outline-info">Close</a>
+                            <div class="col form-label-group ">
+                                <label for="customerIdCard">ID Card:</label><br>
+                                <input id="customerIdCard" type="text" th:field="*{customerIdCard}" class="form-control"
+                                       placeholder="ID Card...">
+                                <p style="color: red" class="text-center" th:errors="*{customerIdCard}"></p>
+                            </div>
+                            <div class="col form-label-group ">
+                                <label for="customerPhone">Phone Number:</label>
+                                <input id="customerPhone" th:field="*{customerPhone}" type="text" class="form-control"
+                                       placeholder="Phone number...">
+                                <p style="color: red" class="text-center" th:errors="*{customerPhone}"></p>
+                            </div>
+                            <div class="col form-label-group ">
+                                <label for="customerEmail">Email:</label>
+                                <input id="customerEmail" th:field="*{customerEmail}" type="text" class="form-control"
+                                       placeholder="abc@gmail.com..."></input>
+                                <p style="color: red" class="text-center" th:errors="*{customerEmail}"></p>
+                            </div>
+                            <div class="col form-label-group ">
+                                <label for="customerAddress">Address:</label>
+                                <input id="customerAddress" th:field="*{customerAddress}" type="text"
+                                       class="form-control" placeholder="Address...">
+                                <p style="color: red" class="text-center" th:errors="*{customerAddress}"></p>
+                            </div>
+                            <div class="col form-label-group ">
+                                <label for="type">Customer Type</label>
+                                <select id="type" th:field="*{customerType}" class="form-control" style="height: 50px">
+                                    <option
+                                            th:each="cusType : ${customerTypeList}"
+                                            th:value="${cusType.id}"
+                                            th:text="${cusType.name}"></option>
+                                </select>
+                            </div>
+                            <div style="text-align: center" >
+                                <button type="submit" class="btn btn-outline-info">Save</button>
+                                <a th:href="@{/customer}" class="btn btn-outline-info">Close</a>
+                            </div>
                         </form>
                     </div>
                 </div>

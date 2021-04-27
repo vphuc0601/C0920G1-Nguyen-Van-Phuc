@@ -69,7 +69,7 @@ public class EmployeeController {
         }
     }
 
-    @GetMapping(value = "employee/edit/{id}")
+    @GetMapping(value = "/employee/edit/{id}")
     public String showEditPage(@PathVariable Long id, Model model){
         model.addAttribute("divisionList", divisionService.findAll());
         model.addAttribute("educationDegreeList", educationDegreeService.findAll());
@@ -79,10 +79,18 @@ public class EmployeeController {
     }
 
     @PostMapping(value = "employee/edit")
-    public String editEmployee(@ModelAttribute Employee employee, RedirectAttributes redirectAttributes){
-        employeeService.save(employee);
-        redirectAttributes.addFlashAttribute("successMsg", "Update Employee: "+employee.getEmployeeName() +" success!");
-        return "redirect:/employee";
+    public String editEmployee(@Valid @ModelAttribute Employee employee,BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model){
+        new Employee().validate(employee,bindingResult);
+        if(bindingResult.hasErrors()){
+            model.addAttribute("divisionList",divisionService.findAll());
+            model.addAttribute("positionList",positionService.findAll());
+            model.addAttribute("educationDegreeList", educationDegreeService.findAll());
+            return "employee/edit";
+        }else {
+            employeeService.save(employee);
+            redirectAttributes.addFlashAttribute("successMsg", "Update Employee: " + employee.getEmployeeName() + " success!");
+            return "redirect:/employee";
+        }
     }
     @GetMapping("/employee/delete/{id}")
     public String deleteEmployee(@PathVariable Long id, Model model) {

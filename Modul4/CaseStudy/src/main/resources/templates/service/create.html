@@ -128,36 +128,34 @@
                 <div class="col-lg-10 bg-light">
                     <div class="form-group col-12" >
                         <form th:action="@{/service/create}" method="post" th:object="${service}" novalidate="novalidate" >
-                            <div class="form-row" >
                                 <input type="hidden" th:field="*{id}">
                                 <div class="col form-label-group ">
-                                    <input id="serviceId" th:field="*{serviceId}" type="text" class="form-control" placeholder="DV-...">
                                     <label for="serviceId">Service Id:</label>
+                                    <input id="serviceId" th:field="*{serviceId}" type="text" class="form-control" placeholder="DV-...">
                                     <p class="text-center" th:errors="*{serviceId}" ></p>
                                 </div>
                                 <div class="col form-label-group ">
-                                    <input id="name" th:field="*{serviceName}" type="text" class="form-control" placeholder="Name ...">
                                     <label for="name">Name:</label>
+                                    <input id="name" th:field="*{serviceName}" type="text" class="form-control" placeholder="Name ...">
                                     <p class="text-center" th:errors="*{serviceName}" ></p>
                                 </div>
                                 <div class="col form-label-group ">
-                                    <input id="area" th:field="*{serviceArea}" type="number" class="form-control" placeholder="Area..."></input>
                                     <label for="area">Area:</label>
+                                    <input id="area" th:field="*{serviceArea}" type="number" class="form-control" placeholder="Area..."></input>
                                     <p class="text-center" th:errors="*{serviceArea}" ></p>
                                 </div>
                                 <div class="col form-label-group ">
+                                    <label for="cost">Cost:</label>
                                     <input id="cost" th:field="*{serviceCost}" type="number" class="form-control" placeholder="Cost..."></input>
-                                    <label for="cost">Area:</label>
                                     <p class="text-center" th:errors="*{serviceCost}" ></p>
                                 </div>
-                            </div>
-                            <div class="form-row">
                                 <div class="col form-label-group ">
-                                    <input id="maxPeople" type="text" th:field="*{serviceMaxPeople}" class="form-control" placeholder="People...">
                                     <label for="maxPeople">Max People:</label><br>
+                                    <input id="maxPeople" type="text" th:field="*{serviceMaxPeople}" class="form-control" placeholder="People...">
                                     <p class="text-center" th:errors="*{serviceMaxPeople}" ></p>
                                 </div>
                                 <div class="col form-label-group ">
+                                    <label for="serviceType">Type Service</label>
                                     <select id="serviceType" th:field="*{serviceType}" class="form-control" style="height: 50px">
                                         <option
                                                 th:each="se : ${serviceTypeList}"
@@ -165,34 +163,29 @@
                                                 th:text="${se.name}"></option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="form-row">
                                 <div class="col form-label-group ">
-                                    <input id="standardRoom" th:field="*{standardRoom}" type="text" class="form-control" placeholder="Standard Room...">
                                     <label for="standardRoom">Standard Room:</label>
+                                    <input id="standardRoom" th:field="*{standardRoom}" type="text" class="form-control" placeholder="Standard Room...">
                                     <p class="text-center" th:errors="*{standardRoom}" ></p>
-
                                 </div>
                                 <div class="col form-label-group ">
-                                    <input id="numberOfFloors" th:field="*{numberOfFloors}" type="text" class="form-control" placeholder="Number of Floors...">
                                     <label for="numberOfFloors">Number of Floors:</label>
+                                    <input id="numberOfFloors" th:field="*{numberOfFloors}" type="text" class="form-control" placeholder="Number of Floors...">
                                     <p class="text-center" th:errors="*{numberOfFloors}" ></p>
-
                                 </div>
                                 <div class="col form-label-group ">
-                                    <input id="description" th:field="*{descriptionOtherConvenience}" type="text" class="form-control" placeholder="Description..."></input>
                                     <label for="description">Description Other:</label>
+                                    <input id="description" th:field="*{descriptionOtherConvenience}" type="text" class="form-control" placeholder="Description..."></input>
                                     <p class="text-center" th:errors="*{descriptionOtherConvenience}" ></p>
 
                                 </div>
-                            </div>
-                            <div class="form-row">
                                 <div class="col form-label-group ">
-                                    <input id="poolArea" th:field="*{poolArea}" type="text" class="form-control" placeholder="Pool Area...">
                                     <label for="poolArea">Pool Area:</label>
+                                    <input id="poolArea" th:field="*{poolArea}" type="text" class="form-control" placeholder="Pool Area...">
                                     <p class="text-center" th:errors="*{poolArea}" ></p>
                                 </div>
                                 <div class="col form-label-group ">
+                                    <label for="rentTypeId">Rent Type</label>
                                     <select id="rentTypeId" th:field="*{rentType}" class="form-control" style="height: 50px">
                                         <option
                                                 th:each="re : ${rentTypeList}"
@@ -200,9 +193,10 @@
                                                 th:text="${re.name}"></option>
                                     </select>
                                 </div>
-                            </div>
+                            <div style="text-align: center">
                             <button type="submit" class="btn btn-outline-info">Save</button>
                             <a th:href="@{/service}" class="btn btn-outline-info">Close</a>
+                            </div>
                         </form>
                     </div>
                 </div>

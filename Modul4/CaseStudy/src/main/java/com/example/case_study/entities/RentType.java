@@ -15,8 +15,9 @@ public class RentType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
-
+    @Column(columnDefinition = "VARCHAR(255)")
     private String name;
+    @Column(columnDefinition = "DOUBLE")
     private double cost;
     @OneToMany(mappedBy = "rentType")
     private List<Service> service;

@@ -8,6 +8,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+            crossorigin="anonymous"
+    />
 
 </head>
 <body>
@@ -42,10 +48,10 @@
         <td th:text="${contract.customer.customerName}"></td>
         <td th:text="${contract.service.serviceName}"></td>
         <td>
-            <a th:href="@{/contract/edit/{id}(id=${contract.id})}"><button type="button" class="btn btn-outline-primary">Edit</button></a>
+            <a th:href="@{/contract/edit/{id}(id=${contract.id})}"><button type="button" class="btn btn-outline-primary"><i class="fas fa-edit" style="font-size:20px;"></i></button></a>
         </td>
         <td>
-            <a th:href="@{/contract/delete/{id}(id=${contract.id})}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+            <a th:href="@{/contract/delete/{id}(id=${contract.id})}"><button type="button" class="btn btn-outline-danger"><i class="fas fa-trash" style="font-size:23px;"></i></button></a>
         </td>
     </tr>
     </tbody>
@@ -54,7 +60,7 @@
 
     <nav aria-label="Page navigation example" style="float: right; margin-right: 25px">
         <ul class="pagination">
-            <li class="page-item"><a class="page-link" th:href="@{/customer(page = 0, searchNameContract = ${stringAfterCheck})}">Prevous</a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contract(page = 0, searchNameContract = ${stringAfterCheck})}">Prevous</a></li>
             <th:block th:each="i: ${#numbers.sequence(0, contractList.totalPages - 1)}">
                 <li class="page-item">
                     <a class="page-link" th:href="@{/contract(page=${i},searchNameContract=${stringAfterCheck})}" th:text="${i + 1}"></a>

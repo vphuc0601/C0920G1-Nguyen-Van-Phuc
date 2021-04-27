@@ -17,7 +17,7 @@ public class CustomerType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_type_id")
     private Long id;
-    @Column(name = "customer_type_name")
+    @Column(name = "customer_type_name", columnDefinition = "VARCHAR(255)")
     private String name;
 
     @OneToMany(mappedBy = "customerType")

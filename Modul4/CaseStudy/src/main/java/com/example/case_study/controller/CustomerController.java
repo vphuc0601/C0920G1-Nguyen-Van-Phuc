@@ -11,6 +11,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -28,8 +29,6 @@ public class CustomerController {
     public String goHome(){
         return "home1";
     }
-
-
 
     @GetMapping("customer")
     public String getAllCustomer(@PageableDefault(size = 4) Pageable pageable,
@@ -77,12 +76,18 @@ public class CustomerController {
     }
 
     @PostMapping(value = "customer/edit")
-    public String editCustomer(@ModelAttribute Customer customer, RedirectAttributes redirectAttributes){
-        customerService.save(customer);
-        redirectAttributes.addFlashAttribute("successMsg", "Update Customer: "+customer.getCustomerName() +" success!");
-        return "redirect:/customer";
+    public String editCustomer(@Valid @ModelAttribute Customer customer,BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model){
+        new Customer().validate(customer,bindingResult);
+        if(bindingResult.hasErrors()){
+            model.addAttribute("customerTypeList", customerTypeService.findAll());
+            return "customer/edit";
+        }else {
+            customerService.save(customer);
+            redirectAttributes.addFlashAttribute("successMsg", "Update Customer: "+customer.getCustomerName() +" success!");
+            return "redirect:/customer";
+        }
     }
-    @GetMapping("/customer/delete/{id}")
+    @GetMapping("customer/delete/{id}")
     public String deleteCustomer(@PathVariable Long id, Model model) {
         model.addAttribute("customerTypeList", customerTypeService.findAll());
         model.addAttribute("customer", customerService.findById(id));
@@ -100,8 +105,9 @@ public class CustomerController {
         return "customer/view";
     }
 
-//    @GetMapping("customer/search")
-//    public ModelAndView searchCustomer(@RequestParam String keyword, @PageableDefault(value = 4)Pageable pageable){
-//            return new ModelAndView("customer/list", "customerList", customerService.searchCustomer(keyword, pageable));
-//    }
+    @GetMapping("customer/search")
+    public ModelAndView searchCustomer(@RequestParam String keyword, @PageableDefault(value = 4)Pageable pageable){
+            return new ModelAndView("customer/list", "customerList", customerService.searchCustomer(keyword, pageable));
+    }
 }
+

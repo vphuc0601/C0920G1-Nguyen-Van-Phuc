@@ -14,6 +14,7 @@ public class EducationDegree {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(columnDefinition = "VARCHAR(255)")
     private String name;
 
     @OneToMany(mappedBy = "educationDegree")

@@ -25,40 +25,40 @@ public class Customer implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "customer_id")
+    @Column(name = "customer_id", columnDefinition = "VARCHAR(255)")
     @NotBlank(message = "Customer ID not empty")
     @Pattern(regexp = "^(KH-)\\d{4}$",message = "Format must be KH-xxxx")
     private String customerId;
 
-    @Column(name = "customer_name")
+    @Column(name = "customer_name",columnDefinition = "VARCHAR(255)")
     @NotBlank(message = "Name customer not empty")
     private String customerName;
 
 //    @NotBlank(message = "Customer Birthday not empty")
-    @Column(name = "customer_birthday")
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @Column(name = "customer_birthday", columnDefinition = "DATE")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @PastOrPresent
     private Date customerBirthday;
 
-    @Column(name = "customer_gender")
+    @Column(name = "customer_gender", columnDefinition = "VARCHAR(255)")
     private String customerGender;
 
-    @Column(name = "customer_id_card")
+    @Column(name = "customer_id_card", columnDefinition = "VARCHAR(255)")
     @NotBlank(message = "ID Card not empty")
     @Pattern(regexp = "^[0-9]{9}", message = "ID Card must be 10 number")
     private String customerIdCard;
 
-    @Column(name = "customer_phone")
+    @Column(name = "customer_phone", columnDefinition = "VARCHAR(255)")
     @NotBlank(message = "Phone not empty")
-    @Pattern(regexp = "^0\\\\d{9}$", message = "Phone incorrect format")
+    @Pattern(regexp = "^(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})$", message = "Phone incorrect format")
     private String customerPhone;
 
-    @Column(name = "customer_email")
+    @Column(name = "customer_email", columnDefinition = "VARCHAR(255)")
     @NotBlank(message = "Email not empty")
     @Pattern(regexp = "^[a-z0-9_]+[a-z0-9]@([a-z0-9]+\\.)[a-z]+(|\\.[a-z]+)$", message = "Email incorrect format")
     private String customerEmail;
 
-    @Column(name = "customer_address")
+    @Column(name = "customer_address", columnDefinition = "VARCHAR(255)")
     @NotBlank(message = "Address not empty")
     private String customerAddress;
 
