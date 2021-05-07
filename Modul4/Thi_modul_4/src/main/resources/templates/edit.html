@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<div><p>
+    <a th:href="@{/}">
+        Back to list
+    </a>
+</p>
+</div>
+<form th:action="@{/updateDonHang}" th:object="${donhang}" method="post" novalidate="novalidate">
+    <div>
+        <label>STT</label>
+        <input class="input-group mb-3" type="hidden" th:field="*{id}">
+
+    </div>
+    <div>
+        <label>Tên sản phẩm</label>
+        <select th:field="*{sanPhams}" class="form-control"  name="Order">
+            <option th:each="s : ${sanphamList}"
+                    th:value="${s.id}"
+                    th:text="${s.tenSanPham}">
+            </option>
+        </select>
+    </div>
+    <div>
+        <label>Giá</label>
+        <select th:field="*{sanPhams}" class="form-control"  name="Order">
+            <option th:each="l : ${sanphamList}"
+                    th:value="${l.id}"
+                    th:text="${l.giaSanPham}">
+            </option>
+        </select>
+
+    </div>
+    <div>
+        <label>Loại sản phẩm</label>
+        <select th:field="*{sanPhams}" class="form-control"  name="Order">
+            <option th:each="l : ${loaisanphamList}"
+                    th:value="${l.id}"
+                    th:text="${l.ten}">
+            </option>
+        </select>
+    </div>
+    <div>
+        <label>Ngày Mua</label>
+        <input class="input-group mb-3" type="date" th:field="*{ngayMua}">
+        <span style="color: red;" th:if="${#fields.hasErrors('ngayMua')}" th:errors="*{ngayMua}"></span>
+    </div>
+    <div>
+        <label>Số lượng</label>
+        <input class="input-group mb-3" type="number" th:field="*{soLuong}">
+        <!--        <span style="color: red;" th:if="${#fields.hasErrors('loaiCauHoi')}" th:errors="*{loaiCauHoi}"></span>-->
+    </div>
+
+
+
+
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+</body>
+</html>
